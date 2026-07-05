@@ -10,28 +10,30 @@ export default function Contact() {
         </div>
         <a
           href="mailto:iamsharjeeel@gmail.com"
-          className="font-display font-black tracking-[-0.04em] text-[clamp(28px,7vw,96px)] leading-none lowercase break-words hover:text-accent transition-colors"
+          className="font-display font-black tracking-[-0.04em] text-[clamp(22px,6.4vw,96px)] leading-none lowercase break-words max-w-full py-3 hover:text-accent transition-colors"
         >
           iamsharjeeel@gmail.com
         </a>
-        <div className="mt-9 flex gap-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
+        <div className="mt-9 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
           <a
             href="https://xovera.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-b border-transparent hover:border-text hover:text-text transition-colors"
+            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
           >
             Xovera
           </a>
           <a
             href="#"
-            className="border-b border-transparent hover:border-text hover:text-text transition-colors"
+            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
           >
             LinkedIn
           </a>
           <a
-            href="#"
-            className="border-b border-transparent hover:border-text hover:text-text transition-colors"
+            href="https://github.com/iamsharjeeel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
           >
             GitHub
           </a>

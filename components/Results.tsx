@@ -83,11 +83,13 @@ export default function Results() {
                 {r.client}
               </div>
             </div>
-            <div className="font-mono text-[13px] text-accent-green sm:text-right min-w-[140px]">
-              {r.metricA}
-            </div>
-            <div className="font-mono text-[13px] text-accent-green sm:text-right min-w-[140px]">
-              {r.metricB}
+            <div className="flex flex-wrap gap-x-6 gap-y-1 sm:contents">
+              <div className="font-mono text-[13px] text-accent-green sm:text-right sm:min-w-[140px]">
+                {r.metricA}
+              </div>
+              <div className="font-mono text-[13px] text-accent-green sm:text-right sm:min-w-[140px]">
+                {r.metricB}
+              </div>
             </div>
           </div>
         ))}

@@ -7,6 +7,7 @@ import Results from "@/components/Results";
 import Marquee from "@/components/Marquee";
 import Work from "@/components/Work";
 import Stack from "@/components/Stack";
+import AlsoShipped from "@/components/AlsoShipped";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <Marquee />
         <Work />
         <Stack />
+        <AlsoShipped />
         <Contact />
       </main>
     </SmoothScrollProvider>

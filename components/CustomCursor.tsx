@@ -8,6 +8,8 @@ export default function CustomCursor() {
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Touch devices: skip all listeners/ticker work, not just the CSS hide.
+    if (window.matchMedia("(hover: none)").matches) return;
     const cursor = cursorRef.current;
     const ring = ringRef.current;
     if (!cursor || !ring) return;

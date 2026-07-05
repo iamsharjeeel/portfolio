@@ -5,10 +5,10 @@ import { gsap } from "gsap";
 import type { Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const visualRef = useRef<HTMLDivElement>(null);
+  const visualRef = useRef<HTMLAnchorElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
 
-  function handleMove(e: React.MouseEvent<HTMLDivElement>) {
+  function handleMove(e: React.MouseEvent<HTMLAnchorElement>) {
     const visual = visualRef.current;
     const btn = btnRef.current;
     if (!visual || !btn) return;
@@ -36,12 +36,17 @@ export default function ProjectCard({ project }: { project: Project }) {
   }
 
   return (
-    <div className="work-card grid grid-cols-1 md:grid-cols-2 gap-10 items-center min-w-[82vw] md:min-w-[min(64vw,760px)] flex-shrink-0">
-      <div
+    <div className="work-card grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center w-[82vw] md:w-[min(64vw,760px)] flex-shrink-0">
+      <a
         ref={visualRef}
+        href={project.href}
+        {...(project.href !== "#"
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+        aria-label={`${project.title} — ${project.linkLabel}`}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
-        className="aspect-[4/5] rounded-2xl relative overflow-hidden flex items-center justify-center border border-line"
+        className="aspect-[4/3] md:aspect-[4/5] rounded-2xl relative overflow-hidden flex items-center justify-center border border-line"
       >
         <div
           className="parallax-layer project-parallax"
@@ -57,7 +62,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <div ref={btnRef} className="magnetic-btn">
           <span>View</span>
         </div>
-      </div>
+      </a>
       <div className="pr-0 md:pr-5">
         <span className="font-mono text-[11px] tracking-wider uppercase text-accent mb-4 inline-block">
           {project.tag}
@@ -84,9 +89,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-xs tracking-wide uppercase inline-flex items-center gap-2 border-b border-text pb-1"
+          className="font-mono text-xs tracking-wide uppercase inline-flex items-center gap-2 min-h-11"
         >
-          {project.linkLabel}
+          <span className="border-b border-text pb-1">{project.linkLabel}</span>
         </a>
       </div>
     </div>

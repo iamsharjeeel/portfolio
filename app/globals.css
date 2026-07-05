@@ -72,7 +72,8 @@ body {
     cursor: auto;
   }
   .custom-cursor,
-  .custom-cursor-ring {
+  .custom-cursor-ring,
+  .magnetic-btn {
     display: none !important;
   }
 }
@@ -166,6 +167,17 @@ body {
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+
+/* Signature hero panel: shown on md+ screens, and on phones tall
+   enough that it doesn't collide with the headline. */
+.code-panel {
+  display: none;
+}
+@media (min-width: 768px), (min-height: 740px) {
+  .code-panel {
+    display: block;
+  }
 }
 
 .code-line {
