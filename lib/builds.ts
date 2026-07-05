@@ -1,19 +1,46 @@
 export interface Build {
   name: string;
   desc: string;
+  /** language or short category tag shown in the corner */
   lang: string;
   href: string;
+  /** link label — defaults to "GitHub ↗" */
+  linkLabel?: string;
+  /** real business figure, stated plainly (same style as Results metrics) */
+  metric?: string;
+  /** screenshot in /public/projects */
+  image?: string;
   /** true when the repo had no README/description to pull from */
   unverified?: boolean;
 }
 
-// Descriptions sourced from each repo's actual README — no invented features.
+// Descriptions sourced from each repo's README or the live site — no invented features.
 export const builds: Build[] = [
   {
-    name: "simple-solutions",
-    desc: "Marketing site for Simple Solutions — The System Artists. React 19 + Vite + Tailwind, booking flow wired to Resend and a HighLevel webhook.",
-    lang: "TypeScript",
-    href: "https://github.com/iamsharjeeel/simple-solutions",
+    name: "Simple Solutions",
+    desc: "Own product — \"The System Artists.\" Custom automated workflows and technical integrations for scaling businesses. React 19 + Vite + Tailwind, booking flow wired to Resend and a HighLevel webhook.",
+    lang: "Product",
+    href: "https://s1mplesolutions.cc",
+    linkLabel: "Live ↗",
+    metric: "$13K MRR",
+    image: "/projects/s1mplesolutions.png",
+  },
+  {
+    name: "Smart Lawn Care",
+    desc: "\"Never Mow Again\" — landing page for Alert Lawn Care's robotic mowing division, backed by ad campaigns and CRM management.",
+    lang: "Landing page",
+    href: "https://smart-lawn-care.vercel.app",
+    linkLabel: "Live ↗",
+    metric: "$30K/MO REVENUE",
+    image: "/projects/smart-lawn-care.png",
+  },
+  {
+    name: "SimpleOps",
+    desc: "\"Ops, simplified.\" Task management tool built for teams that get things done — own product under the Simple Solutions brand.",
+    lang: "Product",
+    href: "https://tasks.s1mplesolutions.cc",
+    linkLabel: "Live ↗",
+    image: "/projects/simpleops.png",
   },
   {
     name: "otomate",

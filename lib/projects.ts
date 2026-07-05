@@ -6,7 +6,7 @@ export interface Project {
   stats: { value: string; label: string }[];
   linkLabel: string;
   href: string;
-  letter: string;
+  image: string;
 }
 
 export const projects: Project[] = [
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     ],
     linkLabel: "View live →",
     href: "https://cadence-eta-five.vercel.app",
-    letter: "C",
+    image: "/projects/cadence.png",
   },
   {
     num: "02 / 03",
@@ -35,8 +35,8 @@ export const projects: Project[] = [
       { value: "42", label: "Members" },
     ],
     linkLabel: "View case study →",
-    href: "https://xovera.io/xovera-npi",
-    letter: "N",
+    href: "https://casestudies-gamma.vercel.app/xovera-npi",
+    image: "/projects/npi-case-study.png",
   },
   {
     num: "03 / 03",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
       { value: "Tailwind", label: "Styled" },
     ],
     linkLabel: "View project →",
-    href: "#",
-    letter: "B",
+    href: "https://baseball-lessons-two.vercel.app",
+    image: "/projects/nsec-baseball.png",
   },
 ];
