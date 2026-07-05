@@ -226,6 +226,24 @@ body {
   will-change: transform;
 }
 
+/* Stack cards — hover lift on pointer devices only */
+.stack-card {
+  border: 1px solid transparent;
+}
+@media (hover: hover) {
+  .stack-card {
+    transition:
+      transform 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .stack-card:hover {
+    transform: translateY(-4px);
+    background-color: color-mix(in srgb, var(--bg-raised) 88%, var(--text) 12%);
+    border-color: var(--accent);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

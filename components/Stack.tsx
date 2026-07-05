@@ -1,8 +1,24 @@
 const stack = [
-  { label: "Frontend", tools: "Next.js, TypeScript, Tailwind, Framer Motion" },
-  { label: "Backend", tools: "Supabase, Postgres, Vercel" },
-  { label: "Growth", tools: "Meta Ads, Meta CAPI, GoHighLevel" },
-  { label: "AI / Tooling", tools: "Claude Code, Cursor Composer, local Ollama" },
+  {
+    label: "Frontend",
+    tools: "Next.js, TypeScript, Tailwind, Framer Motion, GSAP, React",
+  },
+  {
+    label: "Backend",
+    tools: "Supabase, Postgres, Vercel, Node.js",
+  },
+  {
+    label: "Growth",
+    tools: "Meta Ads, Meta CAPI, GoHighLevel, Google Ads",
+  },
+  {
+    label: "AI / Tooling",
+    tools: "Claude Code, Cursor Composer, local Ollama, ChatGPT/Claude API",
+  },
+  {
+    label: "Automation",
+    tools: "n8n, GHL workflows, webhooks",
+  },
 ];
 
 export default function Stack() {
@@ -16,9 +32,9 @@ export default function Stack() {
           What&apos;s actually under the hood
         </span>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-line border border-line">
         {stack.map((s) => (
-          <div key={s.label} className="bg-bg p-7">
+          <div key={s.label} className="stack-card bg-bg p-7">
             <div className="font-mono text-[11px] text-text-faint uppercase tracking-wider mb-2.5">
               {s.label}
             </div>

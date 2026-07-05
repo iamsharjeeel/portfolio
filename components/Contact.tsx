@@ -16,15 +16,9 @@ export default function Contact() {
         </a>
         <div className="mt-9 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
           <a
-            href="https://xovera.io"
+            href="https://www.linkedin.com/in/iamsharjeel/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
-          >
-            Xovera
-          </a>
-          <a
-            href="#"
             className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
           >
             LinkedIn
@@ -37,7 +31,31 @@ export default function Contact() {
           >
             GitHub
           </a>
+          <a
+            href="https://wa.me/923106179780"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
+          >
+            WhatsApp
+          </a>
+          <a
+            href="tel:+923106179780"
+            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
+          >
+            Call
+          </a>
+          <a
+            href="facetime:+923106179780"
+            title="Apple devices only — opens FaceTime on iOS/macOS"
+            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors text-text-faint hover:text-text"
+          >
+            FaceTime
+          </a>
         </div>
+        <p className="mt-4 font-mono text-[10px] text-text-faint uppercase tracking-wide">
+          +92 310 6179780 · FaceTime link works on Apple devices only
+        </p>
       </section>
       <footer className="flex justify-between px-5 sm:px-8 lg:px-14 py-6 font-mono text-[11px] text-text-faint border-t border-line flex-wrap gap-2.5">
         <span>© 2026 Sharjeel</span>

@@ -37,13 +37,17 @@ or connect the repo in the Vercel dashboard — zero config needed, this is a st
 ## Done
 - [x] Light/dark theme toggle (persisted, pre-hydration script, GSAP-safe transitions)
 - [x] Animated wireframe backdrop behind the Work heading card
-- [x] Mobile-first pass, tested at 375 / 390 / 414 / 430 px: responsive header with ≥44px tap targets, compact hero code panel on tall phones, stacked Results metrics, tappable project visuals (magnetic button is desktop-only), custom cursor fully disabled on touch, no horizontal overflow anywhere
-- [x] "Also shipped" section — compact grid of public GitHub repos (`lib/builds.ts`)
+- [x] Mobile-first pass, tested at 375 / 390 / 414 / 430 px: responsive header with ≥44px tap targets, compact hero code panel on tall phones, stacked Results metrics, tappable project visuals (magnetic button is desktop-only), custom cursor fully disabled on touch, no horizontal overflow anywhere — re-verified after the screenshot/content changes below
+- [x] "Also shipped" section — grid of products, client work, and public repos (`lib/builds.ts`)
+- [x] Real screenshots (in `public/projects/`, captured from the live sites) replace all placeholder visuals:
+  - Flagships: Cadence, NPI case study, NSEC Baseball — `next/image` inside the parallax layer, number overlay + dark gradient kept
+  - Grid: Simple Solutions ($13K MRR), Smart Lawn Care ($30K/MO revenue), SimpleOps
+- [x] URLs corrected: NPI case study now points to casestudies-gamma.vercel.app/xovera-npi (xovera.io/xovera-npi 404s), NSEC Baseball now points to baseball-lessons-two.vercel.app (was `#`)
 - [x] GitHub link in Contact points to github.com/iamsharjeeel
 
 ## Things to customize before shipping
-- [ ] Replace `#` placeholder links for LinkedIn (Contact) and the NSEC project (`lib/projects.ts`)
+- [ ] Replace the `#` placeholder LinkedIn link in `components/Contact.tsx`
 - [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts` (their repos have no README)
-- [ ] Swap the letter-only project visuals (`C` / `N` / `B`) for real screenshots — edit `ProjectCard.tsx`, replace the `parallax-layer` background with an `<Image>` 
 - [ ] Confirm email: currently `iamsharjeeel@gmail.com`
 - [ ] Add a favicon / OG image in `app/` if you want link previews to look right
+- [ ] Decide whether s1mplesolutions.cc gets promoted to a 4th flagship project in `Work.tsx`
