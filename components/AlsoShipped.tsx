@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ProjectVisual from "@/components/ProjectVisual";
 import { builds } from "@/lib/builds";
 
 export default function AlsoShipped() {
@@ -21,15 +21,12 @@ export default function AlsoShipped() {
             rel="noopener noreferrer"
             className="group bg-bg p-6 sm:p-7 flex flex-col gap-3 min-h-[164px] transition-colors hover:bg-bg-raised"
           >
-            {b.image && (
-              <div className="relative aspect-[16/10] rounded-lg overflow-hidden border border-line mb-1">
-                <Image
-                  src={b.image}
-                  alt={`${b.name} — live site screenshot`}
-                  fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
-                  className="object-cover object-top"
-                />
+            {b.visual && (
+              <div
+                className="flex items-center justify-center aspect-[16/10] rounded-lg border border-line mb-1"
+                style={{ background: "linear-gradient(160deg,#1A1A1A,#0A0A0A)" }}
+              >
+                <ProjectVisual kind={b.visual} size="sm" />
               </div>
             )}
             <div className="flex items-baseline justify-between gap-3">

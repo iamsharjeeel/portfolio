@@ -1,3 +1,5 @@
+import type { ProjectVisualKind } from "@/components/ProjectVisual";
+
 export interface Build {
   name: string;
   desc: string;
@@ -8,8 +10,8 @@ export interface Build {
   linkLabel?: string;
   /** real business figure, stated plainly (same style as Results metrics) */
   metric?: string;
-  /** screenshot in /public/projects */
-  image?: string;
+  /** abstract icon treatment for live-product cards */
+  visual?: ProjectVisualKind;
   /** true when the repo had no README/description to pull from */
   unverified?: boolean;
 }
@@ -23,7 +25,7 @@ export const builds: Build[] = [
     href: "https://s1mplesolutions.cc",
     linkLabel: "Live ↗",
     metric: "$13K MRR",
-    image: "/projects/s1mplesolutions.png",
+    visual: "product",
   },
   {
     name: "Smart Lawn Care",
@@ -32,7 +34,7 @@ export const builds: Build[] = [
     href: "https://smart-lawn-care.vercel.app",
     linkLabel: "Live ↗",
     metric: "$30K/MO REVENUE",
-    image: "/projects/smart-lawn-care.png",
+    visual: "lawn",
   },
   {
     name: "SimpleOps",
@@ -40,7 +42,7 @@ export const builds: Build[] = [
     lang: "Product",
     href: "https://tasks.s1mplesolutions.cc",
     linkLabel: "Live ↗",
-    image: "/projects/simpleops.png",
+    visual: "tasks",
   },
   {
     name: "otomate",

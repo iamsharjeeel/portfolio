@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
+import ProjectVisual from "./ProjectVisual";
 import type { Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -53,17 +53,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           className="parallax-layer project-parallax"
           style={{ background: "linear-gradient(160deg,#1A1A1A,#0A0A0A)" }}
         >
-          <Image
-            src={project.image}
-            alt={`${project.title} — live site screenshot`}
-            fill
-            sizes="(min-width: 768px) 35vw, 82vw"
-            className="object-cover object-top"
-          />
-          {/* keeps the number label and magnetic button legible on light screenshots */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-black/45" />
+          <ProjectVisual kind={project.visual} size="lg" />
         </div>
-        <span className="font-mono text-[13px] text-white/75 absolute top-5 left-5 z-[2]">
+        <span className="font-mono text-[13px] text-text-faint absolute top-5 left-5 z-[2]">
           {project.num}
         </span>
         <div ref={btnRef} className="magnetic-btn">

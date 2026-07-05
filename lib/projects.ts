@@ -1,3 +1,11 @@
+export type ProjectVisualKind =
+  | "saas"
+  | "growth"
+  | "landing"
+  | "product"
+  | "tasks"
+  | "lawn";
+
 export interface Project {
   num: string;
   tag: string;
@@ -6,7 +14,7 @@ export interface Project {
   stats: { value: string; label: string }[];
   linkLabel: string;
   href: string;
-  image: string;
+  visual: ProjectVisualKind;
 }
 
 export const projects: Project[] = [
@@ -22,7 +30,7 @@ export const projects: Project[] = [
     ],
     linkLabel: "View live →",
     href: "https://cadence-eta-five.vercel.app",
-    image: "/projects/cadence.png",
+    visual: "saas",
   },
   {
     num: "02 / 03",
@@ -36,7 +44,7 @@ export const projects: Project[] = [
     ],
     linkLabel: "View case study →",
     href: "https://casestudies-gamma.vercel.app/xovera-npi",
-    image: "/projects/npi-case-study.png",
+    visual: "growth",
   },
   {
     num: "03 / 03",
@@ -50,6 +58,6 @@ export const projects: Project[] = [
     ],
     linkLabel: "View project →",
     href: "https://baseball-lessons-two.vercel.app",
-    image: "/projects/nsec-baseball.png",
+    visual: "landing",
   },
 ];

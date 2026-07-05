@@ -45,12 +45,16 @@ export default function Hero() {
     const st = ScrollTrigger.create({
       trigger: heroRef.current,
       start: "top top",
-      end: "bottom top",
-      scrub: true,
+      // Extra scroll room so four word states feel intentional, not rushed at exit
+      end: "+=120%",
+      scrub: 0.4,
       onUpdate: (self) => {
+        const n = heroWords.length;
+        const segment = 1 / n;
+        // Centered buckets so the first word changes soon after scroll begins
         const idx = Math.min(
-          heroWords.length - 1,
-          Math.floor(self.progress * heroWords.length)
+          n - 1,
+          Math.floor((self.progress + segment * 0.5) / segment)
         );
         setHeroWord(idx);
       },
