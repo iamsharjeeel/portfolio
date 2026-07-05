@@ -1,0 +1,46 @@
+export default function Contact() {
+  return (
+    <>
+      <section
+        id="contact"
+        className="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 py-20 border-t border-line relative"
+      >
+        <div className="font-mono text-xs tracking-widest uppercase text-text-dim mb-8">
+          // Got a build, a campaign, or both
+        </div>
+        <a
+          href="mailto:iamsharjeeel@gmail.com"
+          className="font-display font-black tracking-[-0.04em] text-[clamp(28px,7vw,96px)] leading-none lowercase break-words hover:text-accent transition-colors"
+        >
+          iamsharjeeel@gmail.com
+        </a>
+        <div className="mt-9 flex gap-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
+          <a
+            href="https://xovera.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b border-transparent hover:border-text hover:text-text transition-colors"
+          >
+            Xovera
+          </a>
+          <a
+            href="#"
+            className="border-b border-transparent hover:border-text hover:text-text transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="#"
+            className="border-b border-transparent hover:border-text hover:text-text transition-colors"
+          >
+            GitHub
+          </a>
+        </div>
+      </section>
+      <footer className="flex justify-between px-5 sm:px-8 lg:px-14 py-6 font-mono text-[11px] text-text-faint border-t border-line flex-wrap gap-2.5">
+        <span>© 2026 Sharjeel</span>
+        <span>Based in Pakistan · GMT+5</span>
+      </footer>
+    </>
+  );
+}
