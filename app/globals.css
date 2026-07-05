@@ -125,9 +125,20 @@ body {
 
 .marquee-track {
   display: inline-flex;
-  gap: 40px;
-  animation: marquee 22s linear infinite;
+  animation: marquee 50s linear infinite;
   white-space: nowrap;
+}
+.marquee-group {
+  display: inline-flex;
+  align-items: center;
+}
+/* per-item right margin (rather than a flex gap between the two groups)
+   keeps spacing uniform across the seam, so the -50% loop is jump-free */
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  margin-right: 40px;
 }
 @keyframes marquee {
   from { transform: translateX(0); }

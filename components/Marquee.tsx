@@ -1,4 +1,21 @@
-const TAGS = ["NEXT.JS", "META ADS", "GOHIGHLEVEL", "SUPABASE"];
+const TAGS = [
+  "NEXT.JS",
+  "TYPESCRIPT",
+  "REACT",
+  "TAILWIND",
+  "GSAP",
+  "FRAMER MOTION",
+  "SUPABASE",
+  "POSTGRES",
+  "VERCEL",
+  "NODE.JS",
+  "META ADS",
+  "META CAPI",
+  "GOOGLE ADS",
+  "GOHIGHLEVEL",
+  "N8N",
+  "CURSOR",
+];
 
 function Dot() {
   return (
@@ -15,20 +32,27 @@ function Dot() {
   );
 }
 
-export default function Marquee() {
-  const items = [...TAGS, ...TAGS];
+function MarqueeGroup({ ariaHidden = false }: { ariaHidden?: boolean }) {
+  return (
+    <span className="marquee-group" aria-hidden={ariaHidden}>
+      {TAGS.map((tag, i) => (
+        <span key={i} className="marquee-item">
+          {tag}
+          <Dot />
+        </span>
+      ))}
+    </span>
+  );
+}
 
+export default function Marquee() {
   return (
     <div className="marquee-strip py-9 bg-accent my-16 overflow-hidden whitespace-nowrap">
-      <div className="marquee-track">
-        <span className="font-display font-black text-[clamp(28px,4.5vw,56px)] uppercase text-bg tracking-[-0.02em] inline-flex items-center gap-10">
-          {items.map((tag, i) => (
-            <span key={i} className="inline-flex items-center gap-10">
-              {tag}
-              <Dot />
-            </span>
-          ))}
-        </span>
+      <div className="marquee-track font-display font-black text-[clamp(28px,4.5vw,56px)] uppercase text-bg tracking-[-0.02em]">
+        {/* two identical groups tile seamlessly: the track slides exactly one
+            group width (-50%), so the second copy lands where the first was */}
+        <MarqueeGroup />
+        <MarqueeGroup ariaHidden />
       </div>
     </div>
   );
