@@ -29,12 +29,21 @@ or connect the repo in the Vercel dashboard — zero config needed, this is a st
 
 ## Structure
 - `app/page.tsx` — composes all sections
-- `components/` — Hero, Work (horizontal pinned scroll), Philosophy, Results, Marquee, Stack, Contact, CustomCursor, CodePanel, SmoothScrollProvider
+- `components/` — Hero, Work (horizontal pinned scroll), Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop
 - `lib/content.ts` — hero rotating words + code snippets shown in the signature panel
 - `lib/projects.ts` — the 3 featured projects (edit here to swap projects/links/stats)
+- `lib/builds.ts` — the "Also shipped" GitHub repo grid (descriptions pulled from each repo's README)
+
+## Done
+- [x] Light/dark theme toggle (persisted, pre-hydration script, GSAP-safe transitions)
+- [x] Animated wireframe backdrop behind the Work heading card
+- [x] Mobile-first pass, tested at 375 / 390 / 414 / 430 px: responsive header with ≥44px tap targets, compact hero code panel on tall phones, stacked Results metrics, tappable project visuals (magnetic button is desktop-only), custom cursor fully disabled on touch, no horizontal overflow anywhere
+- [x] "Also shipped" section — compact grid of public GitHub repos (`lib/builds.ts`)
+- [x] GitHub link in Contact points to github.com/iamsharjeeel
 
 ## Things to customize before shipping
-- [ ] Replace `#` placeholder links for LinkedIn, GitHub, and the NSEC project
+- [ ] Replace `#` placeholder links for LinkedIn (Contact) and the NSEC project (`lib/projects.ts`)
+- [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts` (their repos have no README)
 - [ ] Swap the letter-only project visuals (`C` / `N` / `B`) for real screenshots — edit `ProjectCard.tsx`, replace the `parallax-layer` background with an `<Image>` 
 - [ ] Confirm email: currently `iamsharjeeel@gmail.com`
 - [ ] Add a favicon / OG image in `app/` if you want link previews to look right
