@@ -3,8 +3,11 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import dynamic from "next/dynamic";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/lib/projects";
+
+const WorkBackdrop = dynamic(() => import("./WorkBackdrop"), { ssr: false });
 
 export default function Work() {
   const pinRef = useRef<HTMLDivElement>(null);
@@ -77,16 +80,19 @@ export default function Work() {
     >
       <div className="h-full flex items-center pl-5 sm:pl-8 lg:pl-14">
         <div ref={trackRef} className="flex gap-[5vw] items-center will-change-transform">
-          <div className="min-w-[80vw] md:min-w-[38vw] flex-shrink-0">
-            <div className="font-mono text-xs text-text-faint tracking-wider uppercase mb-4.5">
-              // Selected work — 03
-            </div>
-            <div className="font-display font-black text-[clamp(38px,6.4vw,84px)] leading-[0.95] tracking-[-0.03em] uppercase">
-              SHIPPED
-              <br />
-              NOT JUST
-              <br />
-              SHIPPED-LOOKING
+          <div className="min-w-[80vw] md:min-w-[38vw] flex-shrink-0 relative">
+            <WorkBackdrop />
+            <div className="relative z-[1]">
+              <div className="font-mono text-xs text-text-faint tracking-wider uppercase mb-4.5">
+                // Selected work — 03
+              </div>
+              <div className="font-display font-black text-[clamp(38px,6.4vw,84px)] leading-[0.95] tracking-[-0.03em] uppercase">
+                SHIPPED
+                <br />
+                NOT JUST
+                <br />
+                SHIPPED-LOOKING
+              </div>
             </div>
           </div>
 
