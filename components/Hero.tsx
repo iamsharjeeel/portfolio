@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CodePanel from "./CodePanel";
@@ -124,11 +125,21 @@ export default function Hero() {
         ref={subRef}
         className="flex justify-between items-end mt-10 gap-10 flex-wrap opacity-0"
       >
-        <p className="max-w-[420px] text-[15px] leading-relaxed text-text-dim">
-          I&apos;m Sharjeel — a full-stack developer and growth engineer. I write
-          the code and run the ads, so the product and the pipeline are never
-          two different problems.
-        </p>
+        <div className="flex items-start gap-4 max-w-[460px]">
+          <Image
+            src="/headshot.png"
+            alt="Sharjeel — headshot"
+            width={64}
+            height={64}
+            priority
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border border-line flex-shrink-0"
+          />
+          <p className="text-[15px] leading-relaxed text-text-dim">
+            I&apos;m Sharjeel — a full-stack developer and growth engineer. I
+            write the code and run the ads, so the product and the pipeline are
+            never two different problems.
+          </p>
+        </div>
         <div className="font-mono text-[11px] tracking-widest uppercase text-text-faint flex items-center gap-2.5">
           <div className="scroll-line" />
           Scroll
