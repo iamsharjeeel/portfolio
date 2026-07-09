@@ -42,12 +42,13 @@ or connect the repo in the Vercel dashboard — zero config needed, this is a st
 - [x] "Also shipped" section — grid of products, client work, and public repos (`lib/builds.ts`)
 - [x] Project card visuals use consistent SVG line icons (`ProjectVisual.tsx`) — saas / growth / landing / product / tasks / lawn — not literal UI screenshots
 - [x] Hero word rotation scroll mapping fixed (extended trigger distance + even bucket distribution)
-- [x] Headshot slot in Philosophy section — drop your photo at `public/sharjeel-headshot.png` (grayscale, bordered frame)
+- [x] Philosophy section: large grayscale headshot merged into the left background (fades into page bg)
+- [x] Work project visual SVGs animate inside their boxes (clock hands, bars, orbit, etc.; respects reduced-motion)
+- [x] Contact: LinkedIn + GitHub only (WhatsApp / Call / FaceTime banner removed)
 - [x] URLs corrected: NPI case study → casestudies-gamma.vercel.app/xovera-npi, NSEC Baseball → baseball-lessons-two.vercel.app
 - [x] GitHub link in Contact points to github.com/iamsharjeeel
 
 ## Things to customize before shipping
-- [ ] Add your headshot at `public/sharjeel-headshot.png` (Philosophy section is wired and waiting)
 - [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts` (their repos have no README)
 - [ ] Confirm email: currently `iamsharjeeel@gmail.com`
 - [ ] Add a favicon / OG image in `app/` if you want link previews to look right
