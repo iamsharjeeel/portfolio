@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-07-09 — Philosophy locked dark; headshot fills left column to text height.
 - 2026-07-09 — Philosophy headshot fit to text column; Work visuals theme-aware + larger icons; strip Pakistan/area mentions.
 - 2026-07-09 — Contact email → hello@sharjeel.cc.
 - 2026-07-09 — Also shipped: enlarge visual icons to fill boxes; theme-matched backgrounds.

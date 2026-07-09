@@ -3,7 +3,7 @@
 ## 2026-07-09 — Philosophy headshot, Work visual motion, Contact cleanup, Results hover
 
 ### What changed
-- Philosophy: headshot sits in the left column, height-matched to the text block (`object-contain`, not full-bleed zoom).
+- Philosophy: always-dark section; headshot fills left column height matched to the text block (`object-cover` + edge fades into #0a0a0a).
 - Work: SVG line icons inside project visual boxes now loop (clock hands, growth bars/line, landing orbit, product nodes, tasks checks, lawn sway).
 - Contact: removed WhatsApp, Call, FaceTime links and the phone/FaceTime banner line; email set to `hello@sharjeel.cc`.
 - Results: row hover wash + accent bar; metric digits count up and scale on hover (pointer devices only).

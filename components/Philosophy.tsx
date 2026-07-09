@@ -28,11 +28,10 @@ export default function Philosophy() {
       if (photoRef.current) {
         gsap.fromTo(
           photoRef.current,
-          { opacity: 0, y: 12 },
+          { opacity: 0 },
           {
             opacity: 1,
-            y: 0,
-            duration: 0.9,
+            duration: 1,
             ease: "power2.out",
             scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
           }
@@ -45,28 +44,28 @@ export default function Philosophy() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex items-center px-5 sm:px-8 lg:px-14 py-28 border-t border-line overflow-hidden"
+      className="philosophy relative px-5 sm:px-8 lg:px-14 py-28 border-t overflow-hidden"
     >
-      <div className="relative z-[1] grid grid-cols-1 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.55fr)] gap-8 md:gap-14 lg:gap-16 w-full md:items-stretch">
-        <div className="flex flex-col gap-5 md:gap-6 min-h-0">
+      <div className="relative z-[1] grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.35fr)] gap-10 md:gap-12 lg:gap-16 w-full md:items-stretch">
+        <div className="flex flex-col gap-5 min-h-0">
           <div className="font-mono text-xs tracking-widest uppercase text-text-faint shrink-0">
             // Philosophy
           </div>
           <div
             ref={photoRef}
-            className="relative flex-1 min-h-[200px] md:min-h-0 w-full max-w-[340px] md:max-w-none opacity-0"
+            className="philosophy-photo relative flex-1 w-full min-h-[280px] sm:min-h-[340px] md:min-h-0 opacity-0"
           >
             <Image
               src="/sharjeel-headshot.png"
               alt="Sharjeel"
               fill
-              sizes="(max-width: 768px) 340px, 38vw"
+              sizes="(max-width: 768px) 90vw, 42vw"
               priority={false}
-              className="object-contain object-left-top grayscale contrast-[1.04] brightness-[0.88] saturate-0"
+              className="object-cover object-[center_12%] grayscale contrast-[1.06] brightness-[0.82] saturate-0"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-bg pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-transparent to-bg/80 pointer-events-none" />
+            <div className="philosophy-fade philosophy-fade-r" />
+            <div className="philosophy-fade philosophy-fade-b" />
+            <div className="philosophy-fade philosophy-fade-t" />
           </div>
         </div>
         <div

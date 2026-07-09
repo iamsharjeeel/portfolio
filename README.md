@@ -42,7 +42,7 @@ or connect the repo in the Vercel dashboard — zero config needed, this is a st
 - [x] "Also shipped" section — grid of products, client work, and public repos (`lib/builds.ts`)
 - [x] Project card visuals use consistent SVG line icons (`ProjectVisual.tsx`) — saas / growth / landing / product / tasks / lawn — not literal UI screenshots
 - [x] Hero word rotation scroll mapping fixed (extended trigger distance + even bucket distribution)
-- [x] Philosophy section: grayscale headshot in left column, sized to the text block (contain, not zoomed crop)
+- [x] Philosophy section: always-dark; headshot fills left column to match text height
 - [x] Work project visual SVGs animate inside their boxes (clock hands, bars, orbit, etc.; respects reduced-motion)
 - [x] Contact: LinkedIn + GitHub only (WhatsApp / Call / FaceTime banner removed)
 - [x] Results rows: hover wash + accent bar; metric digits count up / scale on hover
