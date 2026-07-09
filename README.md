@@ -52,6 +52,6 @@ or connect the repo in the Vercel dashboard — zero config needed, this is a st
 
 ## Things to customize before shipping
 - [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts` (their repos have no README)
-- [ ] Confirm email: currently `iamsharjeeel@gmail.com`
+- [x] Contact email: `hello@sharjeel.cc`
 - [ ] Add a favicon / OG image in `app/` if you want link previews to look right
 - [ ] Decide whether s1mplesolutions.cc gets promoted to a 4th flagship project in `Work.tsx`

@@ -9,10 +9,10 @@ export default function Contact() {
           // Got a build, a campaign, or both
         </div>
         <a
-          href="mailto:iamsharjeeel@gmail.com"
+          href="mailto:hello@sharjeel.cc"
           className="font-display font-black tracking-[-0.04em] text-[clamp(22px,6.4vw,96px)] leading-none lowercase break-words max-w-full py-3 hover:text-accent transition-colors"
         >
-          iamsharjeeel@gmail.com
+          hello@sharjeel.cc
         </a>
         <div className="mt-9 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
           <a

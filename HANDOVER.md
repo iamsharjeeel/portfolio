@@ -5,7 +5,7 @@
 ### What changed
 - Philosophy: replaced small bordered headshot card with a large left-side photo that blends into the section background via gradients.
 - Work: SVG line icons inside project visual boxes now loop (clock hands, growth bars/line, landing orbit, product nodes, tasks checks, lawn sway).
-- Contact: removed WhatsApp, Call, FaceTime links and the phone/FaceTime banner line.
+- Contact: removed WhatsApp, Call, FaceTime links and the phone/FaceTime banner line; email set to `hello@sharjeel.cc`.
 - Results: row hover wash + accent bar; metric digits count up and scale on hover (pointer devices only).
 - Also shipped: visual icons sized to fill their boxes (~78%), higher opacity, theme-matched `bg-raised` + accent wash (no hardcoded dark greys).
 
