@@ -226,6 +226,39 @@ body {
   will-change: transform;
 }
 
+.result-row {
+  transition: border-color 0.3s ease;
+}
+.result-row-bg {
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+.result-row-accent {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.result-metric {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+@media (hover: hover) {
+  .result-row:hover .result-row-bg {
+    background-color: color-mix(in srgb, var(--bg-raised) 70%, transparent);
+  }
+  .result-row:hover .result-row-accent {
+    transform: scaleY(1);
+  }
+  .result-row:hover .result-name {
+    color: var(--text);
+  }
+  .result-row:hover .result-metric {
+    color: color-mix(in srgb, var(--accent-green) 85%, var(--text) 15%);
+    transform: translateX(-2px);
+  }
+  .result-metric:hover {
+    color: var(--accent-green);
+    transform: translateX(0) scale(1.04);
+  }
+}
+
 /* Stack cards — hover lift on pointer devices only */
 .stack-card {
   border: 1px solid transparent;

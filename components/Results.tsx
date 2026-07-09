@@ -32,6 +32,77 @@ const results: ResultRow[] = [
   },
 ];
 
+function parseMetric(raw: string): { value: number | null; suffix: string; label: string } {
+  const match = raw.match(/^(\d+)(%?)\s*(.*)$/);
+  if (!match) {
+    return { value: null, suffix: "", label: raw };
+  }
+  return {
+    value: Number(match[1]),
+    suffix: match[2] || "",
+    label: match[3] || "",
+  };
+}
+
+function Metric({ text }: { text: string }) {
+  const digitRef = useRef<HTMLSpanElement>(null);
+  const parsed = parseMetric(text);
+
+  function animateIn() {
+    if (!digitRef.current || parsed.value === null) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(hover: none)").matches) return;
+    const el = digitRef.current;
+    const target = parsed.value;
+    const obj = { n: 0 };
+    gsap.killTweensOf(obj);
+    gsap.killTweensOf(el);
+    gsap.to(obj, {
+      n: target,
+      duration: 0.55,
+      ease: "power2.out",
+      onUpdate: () => {
+        el.textContent = String(Math.round(obj.n));
+      },
+    });
+    gsap.fromTo(
+      el,
+      { scale: 1 },
+      { scale: 1.12, duration: 0.22, yoyo: true, repeat: 1, ease: "power2.out" }
+    );
+  }
+
+  function reset() {
+    if (!digitRef.current || parsed.value === null) return;
+    const el = digitRef.current;
+    gsap.killTweensOf(el);
+    el.textContent = String(parsed.value);
+    gsap.set(el, { scale: 1 });
+  }
+
+  if (parsed.value === null) {
+    return (
+      <div className="result-metric font-mono text-[13px] text-accent-green sm:text-right sm:min-w-[140px]">
+        {text}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="result-metric font-mono text-[13px] text-accent-green sm:text-right sm:min-w-[140px] cursor-default select-none"
+      onMouseEnter={animateIn}
+      onMouseLeave={reset}
+    >
+      <span ref={digitRef} className="result-digit inline-block origin-center will-change-transform">
+        {parsed.value}
+      </span>
+      {parsed.suffix}
+      {parsed.label ? ` ${parsed.label}` : ""}
+    </div>
+  );
+}
+
 export default function Results() {
   const rowsRef = useRef<HTMLDivElement>(null);
 
@@ -71,25 +142,23 @@ export default function Results() {
         {results.map((r, i) => (
           <div
             key={r.name}
-            className={`result-row grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-4 sm:gap-6 items-center py-6 border-t border-line ${
+            className={`result-row group relative grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-4 sm:gap-6 items-center py-6 border-t border-line opacity-0 ${
               i === results.length - 1 ? "border-b" : ""
             }`}
           >
-            <div>
-              <div className="text-[clamp(18px,2.2vw,26px)] font-semibold tracking-[-0.01em]">
+            <div className="result-row-bg absolute inset-x-[-1.25rem] sm:inset-x-[-2rem] lg:inset-x-[-3.5rem] inset-y-0 pointer-events-none" />
+            <div className="result-row-accent absolute left-[-1.25rem] sm:left-[-2rem] lg:left-[-3.5rem] top-0 bottom-0 w-[2px] bg-accent scale-y-0 origin-center pointer-events-none" />
+            <div className="relative z-[1]">
+              <div className="result-name text-[clamp(18px,2.2vw,26px)] font-semibold tracking-[-0.01em] transition-colors duration-300">
                 {r.name}
               </div>
               <div className="font-mono text-xs text-text-faint mt-1">
                 {r.client}
               </div>
             </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-1 sm:contents">
-              <div className="font-mono text-[13px] text-accent-green sm:text-right sm:min-w-[140px]">
-                {r.metricA}
-              </div>
-              <div className="font-mono text-[13px] text-accent-green sm:text-right sm:min-w-[140px]">
-                {r.metricB}
-              </div>
+            <div className="relative z-[1] flex flex-wrap gap-x-6 gap-y-1 sm:contents">
+              <Metric text={r.metricA} />
+              <Metric text={r.metricB} />
             </div>
           </div>
         ))}
