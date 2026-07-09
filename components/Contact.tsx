@@ -1,3 +1,5 @@
+import ContactForm from "./ContactForm";
+
 export default function Contact() {
   return (
     <>
@@ -16,7 +18,7 @@ export default function Contact() {
         </a>
         <div className="mt-9 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
           <a
-            href="https://www.linkedin.com/in/iamsharjeel/"
+            href="https://www.linkedin.com/in/iamsharjeeel/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
@@ -32,6 +34,7 @@ export default function Contact() {
             GitHub
           </a>
         </div>
+        <ContactForm />
       </section>
       <footer className="flex justify-between px-5 sm:px-8 lg:px-14 py-6 font-mono text-[11px] text-text-faint border-t border-line flex-wrap gap-2.5">
         <span>© 2026 Sharjeel</span>
