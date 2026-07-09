@@ -22,11 +22,9 @@ export default function AlsoShipped() {
             className="group bg-bg p-6 sm:p-7 flex flex-col gap-3 min-h-[164px] transition-colors hover:bg-bg-raised"
           >
             {b.visual && (
-              <div
-                className="flex items-center justify-center aspect-[16/10] rounded-lg border border-line mb-1"
-                style={{ background: "linear-gradient(160deg,#1A1A1A,#0A0A0A)" }}
-              >
-                <ProjectVisual kind={b.visual} size="sm" />
+              <div className="also-visual relative flex items-center justify-center aspect-[16/10] rounded-lg border border-line mb-1 overflow-hidden bg-bg-raised">
+                <div className="also-visual-wash absolute inset-0 pointer-events-none" />
+                <ProjectVisual kind={b.visual} size="fill" className="relative z-[1]" />
               </div>
             )}
             <div className="flex items-baseline justify-between gap-3">

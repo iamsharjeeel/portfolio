@@ -27,28 +27,37 @@ npx vercel
 ```
 or connect the repo in the Vercel dashboard — zero config needed, this is a standard Next.js app.
 
+## Contact form email
+Set in Vercel / `.env.local`:
+```bash
+RESEND_API_KEY=re_...
+# optional after verifying domain:
+CONTACT_FROM_EMAIL="Sharjeel <hello@sharjeel.cc>"
+CONTACT_NOTIFY_TO=iamsharjeeel@gmail.com
+```
+Form posts to `/api/contact` and sends a branded HTML notification.
+
 ## Structure
 - `app/page.tsx` — composes all sections
-- `components/` — Hero, Work (horizontal pinned scroll), Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop
-- `lib/content.ts` — hero rotating words + code snippets shown in the signature panel
-- `lib/projects.ts` — the 3 featured projects (edit here to swap projects/links/stats)
-- `lib/builds.ts` — the "Also shipped" grid (products, client work, public repos)
-- `components/ProjectVisual.tsx` — shared SVG line icons for project card visuals
+- `app/api/contact/route.ts` — contact form → Resend HTML email
+- `lib/contact-email.ts` — branded notification template
+- `components/` — Hero, Work, Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, ContactForm, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop, Header
+- `lib/content.ts` — hero rotating words + code snippets
+- `lib/projects.ts` — featured projects
+- `lib/builds.ts` — Also shipped grid
+- `components/ProjectVisual.tsx` — SVG line icons for project visuals
 
 ## Done
-- [x] Light/dark theme toggle (persisted, pre-hydration script, GSAP-safe transitions)
-- [x] Animated wireframe backdrop behind the Work heading card
-- [x] Mobile-first pass, tested at 375 / 390 / 414 / 430 px: responsive header with ≥44px tap targets, compact hero code panel on tall phones, stacked Results metrics, tappable project visuals (magnetic button is desktop-only), custom cursor fully disabled on touch, no horizontal overflow anywhere — re-verified after the screenshot/content changes below
-- [x] "Also shipped" section — grid of products, client work, and public repos (`lib/builds.ts`)
-- [x] Project card visuals use consistent SVG line icons (`ProjectVisual.tsx`) — saas / growth / landing / product / tasks / lawn — not literal UI screenshots
-- [x] Hero word rotation scroll mapping fixed (extended trigger distance + even bucket distribution)
-- [x] Headshot slot in Philosophy section — drop your photo at `public/sharjeel-headshot.png` (grayscale, bordered frame)
-- [x] URLs corrected: NPI case study → casestudies-gamma.vercel.app/xovera-npi, NSEC Baseball → baseball-lessons-two.vercel.app
-- [x] GitHub link in Contact points to github.com/iamsharjeeel
+- [x] Light/dark theme toggle
+- [x] Mobile header: centered shell, no squished nav row
+- [x] Philosophy always-dark; headshot fills left column to text height
+- [x] Work / Also shipped visual animations + theme-matched boxes
+- [x] Contact form → branded HTML email to `iamsharjeeel@gmail.com` (Resend)
+- [x] Contact email display: `hello@sharjeel.cc`
+- [x] Results row/digit hover interactions
 
 ## Things to customize before shipping
-- [ ] Add your headshot at `public/sharjeel-headshot.png` (Philosophy section is wired and waiting)
-- [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts` (their repos have no README)
-- [ ] Confirm email: currently `iamsharjeeel@gmail.com`
-- [ ] Add a favicon / OG image in `app/` if you want link previews to look right
-- [ ] Decide whether s1mplesolutions.cc gets promoted to a 4th flagship project in `Work.tsx`
+- [ ] Set `RESEND_API_KEY` in Vercel (verify sharjeel.cc for custom from-address)
+- [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts`
+- [ ] Add a favicon / OG image in `app/`
+- [ ] Decide whether s1mplesolutions.cc gets promoted to a 4th flagship project

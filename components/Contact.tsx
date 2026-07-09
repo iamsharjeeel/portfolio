@@ -1,3 +1,5 @@
+import ContactForm from "./ContactForm";
+
 export default function Contact() {
   return (
     <>
@@ -9,14 +11,14 @@ export default function Contact() {
           // Got a build, a campaign, or both
         </div>
         <a
-          href="mailto:iamsharjeeel@gmail.com"
+          href="mailto:hello@sharjeel.cc"
           className="font-display font-black tracking-[-0.04em] text-[clamp(22px,6.4vw,96px)] leading-none lowercase break-words max-w-full py-3 hover:text-accent transition-colors"
         >
-          iamsharjeeel@gmail.com
+          hello@sharjeel.cc
         </a>
         <div className="mt-9 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim flex-wrap justify-center">
           <a
-            href="https://www.linkedin.com/in/iamsharjeel/"
+            href="https://www.linkedin.com/in/iamsharjeeel/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
@@ -31,35 +33,12 @@ export default function Contact() {
           >
             GitHub
           </a>
-          <a
-            href="https://wa.me/923106179780"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
-          >
-            WhatsApp
-          </a>
-          <a
-            href="tel:+923106179780"
-            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors"
-          >
-            Call
-          </a>
-          <a
-            href="facetime:+923106179780"
-            title="Apple devices only — opens FaceTime on iOS/macOS"
-            className="inline-flex items-center min-h-11 px-1 border-b border-transparent hover:border-text hover:text-text transition-colors text-text-faint hover:text-text"
-          >
-            FaceTime
-          </a>
         </div>
-        <p className="mt-4 font-mono text-[10px] text-text-faint uppercase tracking-wide">
-          +92 310 6179780 · FaceTime link works on Apple devices only
-        </p>
+        <ContactForm />
       </section>
       <footer className="flex justify-between px-5 sm:px-8 lg:px-14 py-6 font-mono text-[11px] text-text-faint border-t border-line flex-wrap gap-2.5">
         <span>© 2026 Sharjeel</span>
-        <span>Based in Pakistan · GMT+5</span>
+        <span>Open for select projects</span>
       </footer>
     </>
   );

@@ -226,6 +226,143 @@ body {
   will-change: transform;
 }
 
+.result-row {
+  transition: border-color 0.3s ease;
+}
+.result-row-bg {
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+.result-row-accent {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.result-metric {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+@media (hover: hover) {
+  .result-row:hover .result-row-bg {
+    background-color: color-mix(in srgb, var(--bg-raised) 70%, transparent);
+  }
+  .result-row:hover .result-row-accent {
+    transform: scaleY(1);
+  }
+  .result-row:hover .result-name {
+    color: var(--text);
+  }
+  .result-row:hover .result-metric {
+    color: color-mix(in srgb, var(--accent-green) 85%, var(--text) 15%);
+    transform: translateX(-2px);
+  }
+  .result-metric:hover {
+    color: var(--accent-green);
+    transform: translateX(0) scale(1.04);
+  }
+}
+
+.philosophy {
+  --bg: #0a0a0a;
+  --bg-raised: #121212;
+  --text: #fafaf8;
+  --text-dim: #8a8a85;
+  --text-faint: #4a4a47;
+  --line: rgba(250, 250, 248, 0.09);
+  background: #0a0a0a;
+  color: #fafaf8;
+  border-color: rgba(250, 250, 248, 0.09);
+}
+.philosophy-photo {
+  isolation: isolate;
+}
+.philosophy-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.philosophy-fade-r {
+  background: linear-gradient(
+    to right,
+    transparent 42%,
+    rgba(10, 10, 10, 0.55) 72%,
+    #0a0a0a 100%
+  );
+}
+.philosophy-fade-b {
+  background: linear-gradient(
+    to top,
+    #0a0a0a 0%,
+    rgba(10, 10, 10, 0.7) 18%,
+    transparent 48%
+  );
+}
+.philosophy-fade-t {
+  background: linear-gradient(
+    to bottom,
+    #0a0a0a 0%,
+    transparent 22%
+  );
+}
+
+.work-visual-layer {
+  background: var(--bg-raised);
+}
+.work-visual-wash {
+  background:
+    radial-gradient(
+      120% 90% at 50% 42%,
+      color-mix(in srgb, var(--accent) 12%, transparent) 0%,
+      transparent 64%
+    ),
+    linear-gradient(
+      160deg,
+      var(--bg-raised) 0%,
+      var(--bg) 100%
+    );
+}
+@media (hover: hover) {
+  .work-visual:hover .project-visual {
+    opacity: 0.78;
+  }
+}
+
+.also-visual-wash {
+  background:
+    radial-gradient(
+      120% 90% at 50% 40%,
+      color-mix(in srgb, var(--accent) 14%, transparent) 0%,
+      transparent 62%
+    ),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--bg-raised) 100%, var(--text) 0%) 0%,
+      var(--bg) 100%
+    );
+}
+@media (hover: hover) {
+  .group:hover .also-visual .project-visual {
+    opacity: 0.92;
+    transform: scale(1.04);
+  }
+  .also-visual .project-visual {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .group:hover .also-visual-wash {
+    background:
+      radial-gradient(
+        120% 90% at 50% 40%,
+        color-mix(in srgb, var(--accent) 22%, transparent) 0%,
+        transparent 62%
+      ),
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--bg-raised) 92%, var(--accent) 8%) 0%,
+        var(--bg) 100%
+      );
+  }
+  .also-visual-wash {
+    transition: background 0.35s ease;
+  }
+}
+
 /* Stack cards — hover lift on pointer devices only */
 .stack-card {
   border: 1px solid transparent;
@@ -244,9 +381,136 @@ body {
   }
 }
 
+.project-visual svg * {
+  transform-box: fill-box;
+}
+.project-visual .pv-saas-hand-min {
+  transform-origin: 42px 42px;
+  transform-box: view-box;
+  animation: pv-spin 8s linear infinite;
+}
+.project-visual .pv-saas-hand-hr {
+  transform-origin: 42px 42px;
+  transform-box: view-box;
+  animation: pv-spin 48s linear infinite;
+}
+.project-visual .pv-saas-grid {
+  animation: pv-pulse-opacity 3.2s ease-in-out infinite;
+}
+
+.project-visual .pv-growth-bar-1 {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: pv-bar-grow 2.8s ease-in-out infinite;
+}
+.project-visual .pv-growth-bar-2 {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: pv-bar-grow 2.8s ease-in-out 0.2s infinite;
+}
+.project-visual .pv-growth-bar-3 {
+  transform-origin: bottom center;
+  transform-box: fill-box;
+  animation: pv-bar-grow 2.8s ease-in-out 0.4s infinite;
+}
+.project-visual .pv-growth-line {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: pv-draw 3.6s ease-in-out infinite;
+}
+.project-visual .pv-growth-dot {
+  animation: pv-pulse-opacity 2.4s ease-in-out infinite;
+}
+.project-visual .pv-growth-dot-2 { animation-delay: 0.15s; }
+.project-visual .pv-growth-dot-3 { animation-delay: 0.3s; }
+.project-visual .pv-growth-dot-4 { animation-delay: 0.45s; }
+
+.project-visual .pv-landing-diamond {
+  transform-origin: 60px 60px;
+  transform-box: view-box;
+  animation: pv-breathe 3.4s ease-in-out infinite;
+}
+.project-visual .pv-landing-orbit {
+  transform-origin: 60px 60px;
+  transform-box: view-box;
+  animation: pv-spin 14s linear infinite;
+}
+
+.project-visual .pv-product-node-1 { animation: pv-pulse-opacity 2.6s ease-in-out infinite; }
+.project-visual .pv-product-node-2 { animation: pv-pulse-opacity 2.6s ease-in-out 0.35s infinite; }
+.project-visual .pv-product-node-3 { animation: pv-pulse-opacity 2.6s ease-in-out 0.7s infinite; }
+.project-visual .pv-product-core {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pv-breathe 2.2s ease-in-out infinite;
+}
+.project-visual .pv-product-links {
+  stroke-dasharray: 80;
+  animation: pv-dash 4s linear infinite;
+}
+
+.project-visual .pv-tasks-row-1 { animation: pv-pulse-opacity 2.8s ease-in-out infinite; }
+.project-visual .pv-tasks-row-2 { animation: pv-pulse-opacity 2.8s ease-in-out 0.25s infinite; }
+.project-visual .pv-tasks-row-3 { animation: pv-pulse-opacity 2.8s ease-in-out 0.5s infinite; }
+.project-visual .pv-tasks-check-1 { animation: pv-check-pop 3s ease-in-out infinite; }
+.project-visual .pv-tasks-check-2 { animation: pv-check-pop 3s ease-in-out 0.4s infinite; }
+
+.project-visual .pv-lawn-leaf-l {
+  transform-origin: 60px 48px;
+  transform-box: view-box;
+  animation: pv-sway-l 3.5s ease-in-out infinite;
+}
+.project-visual .pv-lawn-leaf-r {
+  transform-origin: 60px 48px;
+  transform-box: view-box;
+  animation: pv-sway-r 3.5s ease-in-out infinite;
+}
+.project-visual .pv-lawn-blades {
+  animation: pv-pulse-opacity 2.6s ease-in-out infinite;
+}
+
+@keyframes pv-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pv-pulse-opacity {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+@keyframes pv-bar-grow {
+  0%, 100% { transform: scaleY(0.72); opacity: 0.55; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+@keyframes pv-draw {
+  0% { stroke-dashoffset: 120; opacity: 0.4; }
+  45%, 55% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -120; opacity: 0.4; }
+}
+@keyframes pv-breathe {
+  0%, 100% { transform: scale(0.94); opacity: 0.7; }
+  50% { transform: scale(1); opacity: 1; }
+}
+@keyframes pv-dash {
+  to { stroke-dashoffset: -160; }
+}
+@keyframes pv-check-pop {
+  0%, 55%, 100% { opacity: 0.25; transform: scale(0.85); }
+  65%, 85% { opacity: 1; transform: scale(1); }
+}
+@keyframes pv-sway-l {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(5deg); }
+}
+@keyframes pv-sway-r {
+  0%, 100% { transform: rotate(4deg); }
+  50% { transform: rotate(-5deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+  .project-visual * {
+    animation: none !important;
   }
 }

@@ -47,13 +47,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         aria-label={`${project.title} — ${project.linkLabel}`}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
-        className="aspect-[4/3] md:aspect-[4/5] rounded-2xl relative overflow-hidden flex items-center justify-center border border-line"
+        className="work-visual aspect-[4/3] md:aspect-[4/5] rounded-2xl relative overflow-hidden flex items-center justify-center border border-line bg-bg-raised"
       >
-        <div
-          className="parallax-layer project-parallax"
-          style={{ background: "linear-gradient(160deg,#1A1A1A,#0A0A0A)" }}
-        >
-          <ProjectVisual kind={project.visual} size="lg" />
+        <div className="parallax-layer project-parallax work-visual-layer">
+          <div className="work-visual-wash absolute inset-0 pointer-events-none" />
+          <ProjectVisual kind={project.visual} size="lg" className="relative z-[1]" />
         </div>
         <span className="font-mono text-[13px] text-text-faint absolute top-5 left-5 z-[2]">
           {project.num}

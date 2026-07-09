@@ -57,7 +57,7 @@ export default function CodePanel({ glowColor }: { glowColor: string }) {
   return (
     <div
       id="code-panel"
-      className="code-panel absolute top-[6vh] md:top-[14vh] left-5 right-5 md:left-auto md:right-8 lg:right-14 w-auto md:w-[min(480px,42vw)] bg-bg-raised border border-line rounded-xl overflow-hidden font-mono text-[9px] md:text-[12.5px] leading-[1.6] md:leading-[1.7] transition-shadow duration-500"
+      className="code-panel absolute top-[calc(6vh+24px)] md:top-[14vh] left-5 right-5 md:left-auto md:right-8 lg:right-14 w-auto md:w-[min(480px,42vw)] bg-bg-raised border border-line rounded-xl overflow-hidden font-mono text-[9px] md:text-[12.5px] leading-[1.6] md:leading-[1.7] transition-shadow duration-500"
       style={{ boxShadow: `0 40px 90px -20px ${glowColor}22` }}
     >
       <div className="flex items-center gap-2 px-4 py-3 border-b border-line">
