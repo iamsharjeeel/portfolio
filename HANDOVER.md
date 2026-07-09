@@ -7,12 +7,14 @@
 - Work: SVG line icons inside project visual boxes now loop (clock hands, growth bars/line, landing orbit, product nodes, tasks checks, lawn sway).
 - Contact: removed WhatsApp, Call, FaceTime links and the phone/FaceTime banner line.
 - Results: row hover wash + accent bar; metric digits count up and scale on hover (pointer devices only).
+- Also shipped: visual icons sized to fill their boxes (~78%), higher opacity, theme-matched `bg-raised` + accent wash (no hardcoded dark greys).
 
 ### Files touched
 - `components/Philosophy.tsx`
 - `components/ProjectVisual.tsx`
 - `components/Contact.tsx`
 - `components/Results.tsx`
+- `components/AlsoShipped.tsx`
 - `app/globals.css`
 - `public/sharjeel-headshot.png` (added)
 - `README.md`, `CHANGELOG.md`, `HANDOVER.md`

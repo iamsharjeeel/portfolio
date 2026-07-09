@@ -46,6 +46,7 @@ or connect the repo in the Vercel dashboard — zero config needed, this is a st
 - [x] Work project visual SVGs animate inside their boxes (clock hands, bars, orbit, etc.; respects reduced-motion)
 - [x] Contact: LinkedIn + GitHub only (WhatsApp / Call / FaceTime banner removed)
 - [x] Results rows: hover wash + accent bar; metric digits count up / scale on hover
+- [x] Also shipped visuals: icons fill their boxes, theme-matched backgrounds
 - [x] URLs corrected: NPI case study → casestudies-gamma.vercel.app/xovera-npi, NSEC Baseball → baseball-lessons-two.vercel.app
 - [x] GitHub link in Contact points to github.com/iamsharjeeel
 

@@ -8,22 +8,26 @@ export type ProjectVisualKind =
 
 interface ProjectVisualProps {
   kind: ProjectVisualKind;
-  size?: "lg" | "sm";
+  size?: "lg" | "sm" | "fill";
   className?: string;
 }
 
 const stroke = "currentColor";
+
+const sizeClass = {
+  lg: "w-[min(52vw,220px)] h-[min(52vw,220px)] opacity-[0.28]",
+  sm: "w-16 h-16 opacity-[0.28]",
+  fill: "w-[78%] h-[78%] max-w-[280px] max-h-[280px] opacity-[0.72]",
+} as const;
 
 export default function ProjectVisual({
   kind,
   size = "lg",
   className = "",
 }: ProjectVisualProps) {
-  const dim = size === "lg" ? "w-[min(52vw,220px)] h-[min(52vw,220px)]" : "w-16 h-16";
-
   return (
     <div
-      className={`project-visual text-accent opacity-[0.28] ${dim} ${className}`}
+      className={`project-visual text-accent ${sizeClass[size]} ${className}`}
       aria-hidden
     >
       <svg
