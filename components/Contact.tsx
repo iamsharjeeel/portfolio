@@ -35,7 +35,7 @@ export default function Contact() {
       </section>
       <footer className="flex justify-between px-5 sm:px-8 lg:px-14 py-6 font-mono text-[11px] text-text-faint border-t border-line flex-wrap gap-2.5">
         <span>© 2026 Sharjeel</span>
-        <span>Based in Pakistan · GMT+5</span>
+        <span>Open for select projects</span>
       </footer>
     </>
   );

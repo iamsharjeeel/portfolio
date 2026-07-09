@@ -99,7 +99,7 @@ export default function Hero() {
         className="font-mono text-xs tracking-widest uppercase text-text-dim mb-5 flex gap-2.5 items-center opacity-0"
       >
         <span className="w-[7px] h-[7px] rounded-full bg-accent-green inline-block pulse-dot" />
-        Available for select projects — Pakistan (GMT+5)
+        Available for select projects
       </div>
 
       <h1

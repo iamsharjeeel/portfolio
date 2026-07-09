@@ -13,7 +13,7 @@ interface ResultRow {
 
 const results: ResultRow[] = [
   {
-    name: "Newtown Performance Institute",
+    name: "NPI Youth Program",
     client: "Youth performance program — Meta ads + landing page",
     metricA: "486 LEADS",
     metricB: "42 MEMBERS CLOSED",

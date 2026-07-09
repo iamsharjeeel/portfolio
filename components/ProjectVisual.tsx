@@ -15,7 +15,7 @@ interface ProjectVisualProps {
 const stroke = "currentColor";
 
 const sizeClass = {
-  lg: "w-[min(52vw,220px)] h-[min(52vw,220px)] opacity-[0.28]",
+  lg: "w-[min(62vw,300px)] h-[min(62vw,300px)] opacity-[0.55]",
   sm: "w-16 h-16 opacity-[0.28]",
   fill: "w-[78%] h-[78%] max-w-[280px] max-h-[280px] opacity-[0.72]",
 } as const;

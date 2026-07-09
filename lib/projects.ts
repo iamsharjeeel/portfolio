@@ -36,7 +36,7 @@ export const projects: Project[] = [
     num: "02 / 03",
     tag: "Growth · Case study",
     title: "NPI Youth Program",
-    desc: "Full-funnel build for Newtown Performance Institute: Meta campaign, landing page, GHL pipeline, CAPI tracking. Interactive case study page with GSAP and a Three.js particle field.",
+    desc: "Full-funnel build for NPI Youth Program: Meta campaign, landing page, GHL pipeline, CAPI tracking. Interactive case study page with GSAP and a Three.js particle field.",
     stats: [
       { value: "486", label: "Leads" },
       { value: "214", label: "Tours booked" },
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     num: "03 / 03",
     tag: "Landing page · Conversion",
     title: "NSEC Baseball",
-    desc: "Single-purpose landing page for Newtown Sports & Events Center. One CTA, one job: book a free evaluation. Pixel + CAPI wired straight into the GHL webhook.",
+    desc: "Single-purpose landing page for NSEC baseball & softball lessons. One CTA, one job: book a free evaluation. Pixel + CAPI wired straight into the GHL webhook.",
     stats: [
       { value: "1", label: "CTA, on purpose" },
       { value: "Vercel", label: "Deployed" },
