@@ -45,9 +45,11 @@ export default function Work() {
           if (progress) {
             progress.style.width = self.progress * 100 + "%";
           }
+          // Drift within the layer's own 8% overhang only — a pixel shift scaled
+          // to track length overshoots it and exposes the panel behind.
           const layers = track.querySelectorAll(".project-parallax");
           layers.forEach((layer) => {
-            gsap.set(layer, { x: scrollDistance * self.progress * 0.06 });
+            gsap.set(layer, { xPercent: (self.progress * 2 - 1) * 5 });
           });
         },
       });

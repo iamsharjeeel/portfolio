@@ -13,10 +13,13 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <SmoothScrollProvider>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <div className="grain-overlay" />
       <CustomCursor />
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <Philosophy />
         <Results />

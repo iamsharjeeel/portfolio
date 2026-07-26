@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import ProjectVisual from "./ProjectVisual";
 import type { Project } from "@/lib/projects";
@@ -49,11 +50,31 @@ export default function ProjectCard({ project }: { project: Project }) {
         onMouseLeave={handleLeave}
         className="work-visual aspect-[4/3] md:aspect-[4/5] rounded-2xl relative overflow-hidden flex items-center justify-center border border-line bg-bg-raised"
       >
-        <div className="parallax-layer project-parallax work-visual-layer">
-          <div className="work-visual-wash absolute inset-0 pointer-events-none" />
-          <ProjectVisual kind={project.visual} size="lg" className="relative z-[1]" />
-        </div>
-        <span className="font-mono text-[13px] text-text-faint absolute top-5 left-5 z-[2]">
+        {project.image ? (
+          // Screenshots sit at the card's true bounds — the parallax layer
+          // overscales to 116% and would crop the capture's own edges.
+          <>
+            <Image
+              src={project.image}
+              alt={project.imageAlt ?? `${project.title} screenshot`}
+              fill
+              sizes="(max-width: 768px) 82vw, 380px"
+              className="visual-photo"
+            />
+            <div className="work-visual-wash wash-hover absolute inset-0 pointer-events-none" />
+          </>
+        ) : (
+          <div className="parallax-layer project-parallax work-visual-layer">
+            <div className="work-visual-wash absolute inset-0 pointer-events-none" />
+            <ProjectVisual
+              kind={project.visual}
+              size="lg"
+              className="relative z-[1]"
+            />
+          </div>
+        )}
+        {/* Scrim so the index stays readable over any screenshot, light or dark. */}
+        <span className="font-mono text-[13px] text-text absolute top-4 left-4 z-[2] bg-bg/80 backdrop-blur-sm px-2.5 py-1 rounded-md">
           {project.num}
         </span>
         <div ref={btnRef} className="magnetic-btn">

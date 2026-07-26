@@ -14,6 +14,10 @@ export interface Project {
   stats: { value: string; label: string }[];
   linkLabel: string;
   href: string;
+  /** Screenshot of the live product. Takes precedence over `visual`. */
+  image?: string;
+  imageAlt?: string;
+  /** Abstract fallback, used only when there is no screenshot. */
   visual: ProjectVisualKind;
 }
 
@@ -30,6 +34,9 @@ export const projects: Project[] = [
     ],
     linkLabel: "View live →",
     href: "https://cadence-eta-five.vercel.app",
+    image: "/projects/cadence.png",
+    imageAlt:
+      "Cadence timesheet dashboard — dark UI with gold accents, showing time entries and payroll totals.",
     visual: "saas",
   },
   {
@@ -44,6 +51,9 @@ export const projects: Project[] = [
     ],
     linkLabel: "View case study →",
     href: "https://casestudies-gamma.vercel.app/xovera-npi",
+    image: "/projects/npi-case-study.png",
+    imageAlt:
+      "NPI Youth Program case study page — full-funnel breakdown with campaign results.",
     visual: "growth",
   },
   {
@@ -58,6 +68,9 @@ export const projects: Project[] = [
     ],
     linkLabel: "View project →",
     href: "https://baseball-lessons-two.vercel.app",
+    image: "/projects/nsec-baseball.png",
+    imageAlt:
+      "NSEC Baseball landing page — single free-evaluation booking CTA above the fold.",
     visual: "landing",
   },
 ];

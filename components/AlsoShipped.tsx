@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ProjectVisual from "@/components/ProjectVisual";
 import { builds } from "@/lib/builds";
 
@@ -21,10 +22,29 @@ export default function AlsoShipped() {
             rel="noopener noreferrer"
             className="group bg-bg p-6 sm:p-7 flex flex-col gap-3 min-h-[164px] transition-colors hover:bg-bg-raised"
           >
-            {b.visual && (
+            {(b.image || b.visual) && (
               <div className="also-visual relative flex items-center justify-center aspect-[16/10] rounded-lg border border-line mb-1 overflow-hidden bg-bg-raised">
-                <div className="also-visual-wash absolute inset-0 pointer-events-none" />
-                <ProjectVisual kind={b.visual} size="fill" className="relative z-[1]" />
+                {b.image ? (
+                  <>
+                    <Image
+                      src={b.image}
+                      alt={b.imageAlt ?? `${b.name} screenshot`}
+                      fill
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+                      className="visual-photo"
+                    />
+                    <div className="also-visual-wash wash-hover absolute inset-0 pointer-events-none" />
+                  </>
+                ) : (
+                  <>
+                    <div className="also-visual-wash absolute inset-0 pointer-events-none" />
+                    <ProjectVisual
+                      kind={b.visual!}
+                      size="fill"
+                      className="relative z-[1]"
+                    />
+                  </>
+                )}
               </div>
             )}
             <div className="flex items-baseline justify-between gap-3">

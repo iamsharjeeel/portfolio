@@ -10,10 +10,11 @@ export interface Build {
   linkLabel?: string;
   /** real business figure, stated plainly (same style as Results metrics) */
   metric?: string;
-  /** abstract icon treatment for live-product cards */
+  /** screenshot of the live site — takes precedence over `visual` */
+  image?: string;
+  imageAlt?: string;
+  /** abstract icon treatment, used only when there is no screenshot */
   visual?: ProjectVisualKind;
-  /** true when the repo had no README/description to pull from */
-  unverified?: boolean;
 }
 
 // Descriptions sourced from each repo's README or the live site — no invented features.
@@ -25,6 +26,9 @@ export const builds: Build[] = [
     href: "https://s1mplesolutions.cc",
     linkLabel: "Live ↗",
     metric: "$13K MRR",
+    image: "/projects/s1mplesolutions.png",
+    imageAlt:
+      "Simple Solutions marketing site — \"The System Artists\" hero and booking flow.",
     visual: "product",
   },
   {
@@ -34,6 +38,9 @@ export const builds: Build[] = [
     href: "https://smart-lawn-care.vercel.app",
     linkLabel: "Live ↗",
     metric: "$30K/MO REVENUE",
+    image: "/projects/smart-lawn-care.png",
+    imageAlt:
+      "Smart Lawn Care landing page — \"Never Mow Again\" robotic mowing offer.",
     visual: "lawn",
   },
   {
@@ -42,6 +49,8 @@ export const builds: Build[] = [
     lang: "Product",
     href: "https://tasks.s1mplesolutions.cc",
     linkLabel: "Live ↗",
+    image: "/projects/simpleops.png",
+    imageAlt: "SimpleOps task management app — team task list view.",
     visual: "tasks",
   },
   {
@@ -79,19 +88,5 @@ export const builds: Build[] = [
     desc: "Gemini-powered app scaffolded in Google AI Studio.",
     lang: "TypeScript",
     href: "https://github.com/iamsharjeeel/loomless",
-  },
-  {
-    name: "ReVox",
-    desc: "Explore on GitHub.",
-    lang: "JavaScript",
-    href: "https://github.com/iamsharjeeel/ReVox",
-    unverified: true,
-  },
-  {
-    name: "my-automation-engine",
-    desc: "Explore on GitHub.",
-    lang: "JavaScript",
-    href: "https://github.com/iamsharjeeel/my-automation-engine",
-    unverified: true,
   },
 ];
