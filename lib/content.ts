@@ -54,14 +54,15 @@ export const snippets: CodeSnippet[] = [
   },
 ];
 
-export interface RotatorWord {
-  w: string;
-  c: string;
-}
+/**
+ * Hero availability line.
+ *
+ * A dated slot line ("2 build slots open · September 2026") outperforms a
+ * vague one because it is specific and falsifiable — but only while it is
+ * true. A stale date costs more credibility than no date at all, so this is
+ * kept as a single constant: update it here, nowhere else.
+ */
+export const heroAvailability = "Available for select projects";
 
-export const heroWords: RotatorWord[] = [
-  { w: "SCALE.", c: "#FF4D2E" },
-  { w: "CODE.", c: "#4D8DFF" },
-  { w: "ADS.", c: "#3ECF8E" },
-  { w: "SYSTEMS.", c: "#FF4D2E" },
-];
+/** Glow behind the hero code panel. */
+export const heroGlow = "#FF4D2E";

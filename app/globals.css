@@ -207,10 +207,15 @@ body {
 
 /* Signature hero panel: shown on md+ screens, and on phones tall
    enough that it doesn't collide with the headline. */
+/* Width-gated at lg. The old `min-height: 740px` arm showed the panel on any
+   tall phone, at 9px, overlapping the headline. Below 1024 there is no room
+   for both a 400px panel (the width its longest code line needs) and the
+   headline, so the panel simply doesn't appear. This rule is unlayered, so it
+   also beats Tailwind's `hidden` — keep the gate here. */
 .code-panel {
   display: none;
 }
-@media (min-width: 768px), (min-height: 740px) {
+@media (min-width: 1024px) {
   .code-panel {
     display: block;
   }
