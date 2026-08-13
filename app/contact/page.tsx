@@ -1,7 +1,7 @@
 import SiteChrome from "@/components/SiteChrome";
 import JsonLd from "@/components/seo/JsonLd";
 import PageHeader from "@/components/seo/PageHeader";
-import ContactForm from "@/components/ContactForm";
+import { GhlFormWidget } from "@/components/GhlWidget";
 import {
   breadcrumbJsonLd,
   jsonLdGraph,
@@ -67,7 +67,7 @@ export default function ContactPage() {
               Book a call
             </Link>
           </div>
-          <ContactForm />
+          <GhlFormWidget />
         </section>
       </main>
     </SiteChrome>

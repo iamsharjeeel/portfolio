@@ -1,4 +1,4 @@
-import ContactForm from "./ContactForm";
+import { GhlFormWidget } from "./GhlWidget";
 import { SITE_EMAIL, SOCIAL } from "@/lib/seo";
 
 export default function Contact() {
@@ -34,7 +34,7 @@ export default function Contact() {
           GitHub
         </a>
       </div>
-      <ContactForm />
+      <GhlFormWidget lazy />
     </section>
   );
 }

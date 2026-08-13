@@ -38,30 +38,21 @@ npx vercel
 or connect the repo in the Vercel dashboard. Attach `sharjeel.cc` and `www.sharjeel.cc`; apex is canonical.
 
 ## Environment
-Set in Vercel / `.env.local`:
+Set in Vercel / `.env.local` only if you want analytics:
 ```bash
-RESEND_API_KEY=re_...
-# optional after verifying domain:
-CONTACT_FROM_EMAIL="Sharjeel <hello@sharjeel.cc>"
-CONTACT_NOTIFY_TO=iamsharjeeel@gmail.com
-# optional analytics — leave empty until you have real IDs
 NEXT_PUBLIC_GA_ID=
 NEXT_PUBLIC_GTM_ID=
-# optional override; defaults to the production LeadConnector trigger
-LEAD_WEBHOOK_URL=
 ```
-`/contact` posts to `/api/contact` and `/book` posts to `/api/book`. Both send JSON to the LeadConnector webhook. Resend email is best-effort if `RESEND_API_KEY` is set.
+
+Contact and booking use HighLevel widgets. Submissions go into GHL, not this app.
 
 ## Structure
 - `app/page.tsx` — homepage
 - `app/about`, `app/work`, `app/work/*`, `app/services/*`, `app/contact`, `app/book` — indexable SEO routes
 - `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx`
-- `app/api/contact/route.ts` — contact form → LeadConnector JSON + optional Resend
-- `app/api/book/route.ts` — booking request → LeadConnector JSON + optional Resend
-- `lib/lead-webhook.ts` — server-only webhook helper
+- `components/GhlWidget.tsx` — HighLevel contact form + booking calendar embeds
 - `lib/seo.ts` — canonical site URL, titles, descriptions
-- `lib/contact-email.ts` — branded notification template
-- `components/` — Hero, Work, Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, ContactForm, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop, Header, Footer, SiteChrome
+- `components/` — Hero, Work, Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop, Header, Footer, SiteChrome
 - `lib/content.ts` — hero rotating words + code snippets
 - `lib/projects.ts` — featured projects
 - `lib/builds.ts` — Also shipped grid
@@ -70,5 +61,4 @@ LEAD_WEBHOOK_URL=
 ## Manual after deploy
 - Verify `sharjeel.cc` in Google Search Console and submit `/sitemap.xml`
 - Add a real GA4/GTM ID only if you want analytics
-- Set `RESEND_API_KEY` (verify sharjeel.cc for the custom from-address)
-- In GHL, map inbound webhook keys: `name`, `email`, `phone`, `project`, `message` / `notes`, `date`, `time`, `timezone`, `type`
+- In GHL form + calendar designers, set background `#0A0A0A`, accent `#FF4D2E`, text `#FAFAF8` if you want the widgets to match the site (iframe CSS cannot do this)

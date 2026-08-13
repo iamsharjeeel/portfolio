@@ -1,5 +1,23 @@
 # Handover
 
+## 2026-08-13 — HighLevel form and calendar widgets
+
+### What changed
+- Homepage contact, `/contact`, and `/book` now embed HighLevel widgets.
+- Contact form: `https://links.s1mplesolutions.cc/widget/form/Uz2HqJA1sQk9EC6LTcHV`
+- Calendar: `https://links.s1mplesolutions.cc/widget/booking/6MeULKb9URhRkDsOtCPi`
+- Removed custom forms, `/api/contact`, `/api/book`, webhook helper, and Resend email templates.
+- Widget chrome matches the studio shell; inner colors must be set in GHL.
+
+### Files touched
+- `components/GhlWidget.tsx`, `components/Contact.tsx`
+- `app/contact/page.tsx`, `app/book/page.tsx`
+- Deleted: `components/ContactForm.tsx`, `components/BookingForm.tsx`, `app/api/contact/route.ts`, `app/api/book/route.ts`, `lib/lead-webhook.ts`, `lib/contact-email.ts`
+- `.env.example`, `README.md`, `CHANGELOG.md`, `HANDOVER.md`
+
+### Pending
+- **Manual:** in GHL, theme the form and calendar (`#0A0A0A` / `#FF4D2E` / `#FAFAF8`) if you want a full brand match.
+
 ## 2026-08-13 — Branded booking page + LeadConnector webhook
 
 ### What changed

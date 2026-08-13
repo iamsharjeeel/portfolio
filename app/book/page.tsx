@@ -1,7 +1,7 @@
 import SiteChrome from "@/components/SiteChrome";
 import JsonLd from "@/components/seo/JsonLd";
 import PageHeader from "@/components/seo/PageHeader";
-import BookingForm from "@/components/BookingForm";
+import { GhlBookingWidget } from "@/components/GhlWidget";
 import {
   breadcrumbJsonLd,
   jsonLdGraph,
@@ -45,7 +45,7 @@ export default function BookPage() {
               {SITE_EMAIL}
             </a>
           </p>
-          <BookingForm />
+          <GhlBookingWidget />
         </section>
       </main>
     </SiteChrome>
