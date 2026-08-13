@@ -86,13 +86,13 @@ export default function Work() {
               <div className="font-mono text-xs text-text-faint tracking-wider uppercase mb-4.5">
                 // Selected work — 03
               </div>
-              <div className="font-display font-black text-[clamp(38px,6.4vw,84px)] leading-[0.95] tracking-[-0.03em] uppercase">
+              <h2 className="font-display font-black text-[clamp(38px,6.4vw,84px)] leading-[0.95] tracking-[-0.03em] uppercase">
                 SHIPPED
                 <br />
                 NOT JUST
                 <br />
                 SHIPPED-LOOKING
-              </div>
+              </h2>
             </div>
           </div>
 

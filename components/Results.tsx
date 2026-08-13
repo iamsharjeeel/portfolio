@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,6 +10,7 @@ interface ResultRow {
   client: string;
   metricA: string;
   metricB: string;
+  href: string;
 }
 
 const results: ResultRow[] = [
@@ -17,18 +19,21 @@ const results: ResultRow[] = [
     client: "Youth performance program — Meta ads + landing page",
     metricA: "486 LEADS",
     metricB: "42 MEMBERS CLOSED",
+    href: "/work/npi-youth-program",
   },
   {
     name: "NPI Tour Pipeline",
     client: "Lead → booked tour conversion",
     metricA: "214 TOURS BOOKED",
     metricB: "44% BOOK RATE",
+    href: "/work/npi-youth-program",
   },
   {
     name: "Cadence",
     client: "Multi-tenant HR / timesheet SaaS — built solo",
     metricA: "7 BUILD PHASES",
     metricB: "SHIPPED TO PROD",
+    href: "/work/cadence",
   },
 ];
 
@@ -150,7 +155,7 @@ export default function Results() {
             <div className="result-row-accent absolute left-[-1.25rem] sm:left-[-2rem] lg:left-[-3.5rem] top-0 bottom-0 w-[2px] bg-accent scale-y-0 origin-center pointer-events-none" />
             <div className="relative z-[1]">
               <div className="result-name text-[clamp(18px,2.2vw,26px)] font-semibold tracking-[-0.01em] transition-colors duration-300">
-                {r.name}
+                <Link href={r.href}>{r.name}</Link>
               </div>
               <div className="font-mono text-xs text-text-faint mt-1">
                 {r.client}

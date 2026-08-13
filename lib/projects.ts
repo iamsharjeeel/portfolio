@@ -14,6 +14,7 @@ export interface Project {
   stats: { value: string; label: string }[];
   linkLabel: string;
   href: string;
+  caseStudyHref: string;
   visual: ProjectVisualKind;
 }
 
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     ],
     linkLabel: "View live →",
     href: "https://cadence-eta-five.vercel.app",
+    caseStudyHref: "/work/cadence",
     visual: "saas",
   },
   {
@@ -42,8 +44,9 @@ export const projects: Project[] = [
       { value: "214", label: "Tours booked" },
       { value: "42", label: "Members" },
     ],
-    linkLabel: "View case study →",
+    linkLabel: "View live case study →",
     href: "https://casestudies-gamma.vercel.app/xovera-npi",
+    caseStudyHref: "/work/npi-youth-program",
     visual: "growth",
   },
   {
@@ -56,8 +59,9 @@ export const projects: Project[] = [
       { value: "Vercel", label: "Deployed" },
       { value: "Tailwind", label: "Styled" },
     ],
-    linkLabel: "View project →",
+    linkLabel: "View live →",
     href: "https://baseball-lessons-two.vercel.app",
+    caseStudyHref: "/work/nsec-baseball",
     visual: "landing",
   },
 ];

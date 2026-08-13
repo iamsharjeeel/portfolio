@@ -1,6 +1,6 @@
 # Sharjeel — Personal Portfolio
 
-Standalone personal portfolio. Next.js 14+ (App Router), TypeScript, Tailwind CSS v4, GSAP + ScrollTrigger, Lenis smooth scroll.
+Standalone personal portfolio for [sharjeel.cc](https://sharjeel.cc). Next.js App Router, TypeScript, Tailwind CSS v4, GSAP + ScrollTrigger, Lenis smooth scroll.
 
 ## Design system
 - Dark studio aesthetic — near-black background (#0A0A0A), warm red-orange accent (#FF4D2E)
@@ -21,43 +21,49 @@ npm run build
 npm start
 ```
 
+## SEO / quality
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm run seo:audit
+```
+
+`seo:audit` starts the production server, crawls `sitemap.xml`, and fails on missing/duplicate titles, descriptions, canonicals, H1s, OG/Twitter tags, broken internal links, invalid JSON-LD, sitemap non-200s, accidental noindex, and localhost leaks.
+
 ## Deploy to Vercel
 ```bash
 npx vercel
 ```
-or connect the repo in the Vercel dashboard — zero config needed, this is a standard Next.js app.
+or connect the repo in the Vercel dashboard. Attach `sharjeel.cc` and `www.sharjeel.cc`; apex is canonical.
 
-## Contact form email
+## Environment
 Set in Vercel / `.env.local`:
 ```bash
 RESEND_API_KEY=re_...
 # optional after verifying domain:
 CONTACT_FROM_EMAIL="Sharjeel <hello@sharjeel.cc>"
 CONTACT_NOTIFY_TO=iamsharjeeel@gmail.com
+# optional analytics — leave empty until you have real IDs
+NEXT_PUBLIC_GA_ID=
+NEXT_PUBLIC_GTM_ID=
 ```
 Form posts to `/api/contact` and sends a branded HTML notification.
 
 ## Structure
-- `app/page.tsx` — composes all sections
+- `app/page.tsx` — homepage
+- `app/about`, `app/work`, `app/work/*`, `app/services/*`, `app/contact` — indexable SEO routes
+- `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx`
 - `app/api/contact/route.ts` — contact form → Resend HTML email
+- `lib/seo.ts` — canonical site URL, titles, descriptions
 - `lib/contact-email.ts` — branded notification template
-- `components/` — Hero, Work, Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, ContactForm, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop, Header
+- `components/` — Hero, Work, Philosophy, Results, Marquee, Stack, AlsoShipped, Contact, ContactForm, CustomCursor, CodePanel, SmoothScrollProvider, ThemeProvider/ThemeToggle, WorkBackdrop, Header, Footer, SiteChrome
 - `lib/content.ts` — hero rotating words + code snippets
 - `lib/projects.ts` — featured projects
 - `lib/builds.ts` — Also shipped grid
-- `components/ProjectVisual.tsx` — SVG line icons for project visuals
+- `scripts/seo-audit.mjs` — CI SEO gate
 
-## Done
-- [x] Light/dark theme toggle
-- [x] Mobile header: centered shell, no squished nav row
-- [x] Philosophy always-dark; headshot fills left column to text height
-- [x] Work / Also shipped visual animations + theme-matched boxes
-- [x] Contact form → branded HTML email to `iamsharjeeel@gmail.com` (Resend)
-- [x] Contact email display: `hello@sharjeel.cc`
-- [x] Results row/digit hover interactions
-
-## Things to customize before shipping
-- [ ] Set `RESEND_API_KEY` in Vercel (verify sharjeel.cc for custom from-address)
-- [ ] Fill in real descriptions for `ReVox` and `my-automation-engine` in `lib/builds.ts`
-- [ ] Add a favicon / OG image in `app/`
-- [ ] Decide whether s1mplesolutions.cc gets promoted to a 4th flagship project
+## Manual after deploy
+- Verify `sharjeel.cc` in Google Search Console and submit `/sitemap.xml`
+- Add a real GA4/GTM ID only if you want analytics
+- Set `RESEND_API_KEY` (verify sharjeel.cc for the custom from-address)

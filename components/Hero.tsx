@@ -16,6 +16,25 @@ export default function Hero() {
   const currentWordIdx = useRef(-1);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduceMotion) {
+      if (eyebrowRef.current) eyebrowRef.current.style.opacity = "1";
+      if (subRef.current) subRef.current.style.opacity = "1";
+      headlineRef.current
+        ?.querySelectorAll("span[data-line]")
+        .forEach((el) => {
+          (el as HTMLElement).style.opacity = "1";
+          (el as HTMLElement).style.transform = "none";
+        });
+      if (rotatorRef.current) {
+        rotatorRef.current.textContent = heroWords[0].w;
+        rotatorRef.current.style.color = heroWords[0].c;
+      }
+      return;
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     function setHeroWord(idx: number) {

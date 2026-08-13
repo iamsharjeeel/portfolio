@@ -1,6 +1,5 @@
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
-import CustomCursor from "@/components/CustomCursor";
-import Header from "@/components/Header";
+import SiteChrome from "@/components/SiteChrome";
+import JsonLd from "@/components/seo/JsonLd";
 import Hero from "@/components/Hero";
 import Philosophy from "@/components/Philosophy";
 import Results from "@/components/Results";
@@ -9,14 +8,16 @@ import Work from "@/components/Work";
 import Stack from "@/components/Stack";
 import AlsoShipped from "@/components/AlsoShipped";
 import Contact from "@/components/Contact";
+import { jsonLdGraph, personJsonLd, websiteJsonLd } from "@/lib/jsonld";
+import { buildMetadata, pages } from "@/lib/seo";
+
+export const metadata = buildMetadata(pages.home);
 
 export default function Home() {
   return (
-    <SmoothScrollProvider>
-      <div className="grain-overlay" />
-      <CustomCursor />
-      <Header />
-      <main>
+    <SiteChrome>
+      <JsonLd data={jsonLdGraph([personJsonLd(), websiteJsonLd()])} />
+      <main id="main">
         <Hero />
         <Philosophy />
         <Results />
@@ -26,6 +27,6 @@ export default function Home() {
         <AlsoShipped />
         <Contact />
       </main>
-    </SmoothScrollProvider>
+    </SiteChrome>
   );
 }

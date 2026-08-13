@@ -19,7 +19,10 @@ export default function Marquee() {
   const items = [...TAGS, ...TAGS];
 
   return (
-    <div className="marquee-strip py-9 bg-accent my-16 overflow-hidden whitespace-nowrap">
+    <div
+      className="marquee-strip py-9 bg-accent my-16 overflow-hidden whitespace-nowrap"
+      aria-hidden="true"
+    >
       <div className="marquee-track">
         <span className="font-display font-black text-[clamp(28px,4.5vw,56px)] uppercase text-bg tracking-[-0.02em] inline-flex items-center gap-10">
           {items.map((tag, i) => (

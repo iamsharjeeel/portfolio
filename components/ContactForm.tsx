@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -39,6 +40,7 @@ export default function ContactForm() {
       }
       setStatus("sent");
       form.reset();
+      trackEvent("contact_submit");
     } catch {
       setStatus("error");
       setError("Network error. Try again in a moment.");
@@ -121,12 +123,20 @@ export default function ContactForm() {
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
         {status === "sent" && (
-          <span className="font-mono text-xs text-accent-green uppercase tracking-wide">
+          <span
+            role="status"
+            aria-live="polite"
+            className="font-mono text-xs text-accent-green uppercase tracking-wide"
+          >
             Sent — I&apos;ll get back to you.
           </span>
         )}
         {status === "error" && (
-          <span className="font-mono text-xs text-accent uppercase tracking-wide">
+          <span
+            role="alert"
+            aria-live="assertive"
+            className="font-mono text-xs text-accent uppercase tracking-wide"
+          >
             {error}
           </span>
         )}

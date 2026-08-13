@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import ProjectVisual from "./ProjectVisual";
 import type { Project } from "@/lib/projects";
@@ -38,13 +39,10 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div className="work-card grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center w-[82vw] md:w-[min(64vw,760px)] flex-shrink-0">
-      <a
+      <Link
         ref={visualRef}
-        href={project.href}
-        {...(project.href !== "#"
-          ? { target: "_blank", rel: "noopener noreferrer" }
-          : {})}
-        aria-label={`${project.title} — ${project.linkLabel}`}
+        href={project.caseStudyHref}
+        aria-label={`${project.title} case study`}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         className="work-visual aspect-[4/3] md:aspect-[4/5] rounded-2xl relative overflow-hidden flex items-center justify-center border border-line bg-bg-raised"
@@ -59,13 +57,13 @@ export default function ProjectCard({ project }: { project: Project }) {
         <div ref={btnRef} className="magnetic-btn">
           <span>View</span>
         </div>
-      </a>
+      </Link>
       <div className="pr-0 md:pr-5">
         <span className="font-mono text-[11px] tracking-wider uppercase text-accent mb-4 inline-block">
           {project.tag}
         </span>
         <h3 className="font-display font-extrabold text-[clamp(22px,2.6vw,32px)] tracking-[-0.02em] mb-3.5">
-          {project.title}
+          <Link href={project.caseStudyHref}>{project.title}</Link>
         </h3>
         <p className="text-[14.5px] leading-relaxed text-text-dim mb-5">
           {project.desc}
@@ -82,14 +80,24 @@ export default function ProjectCard({ project }: { project: Project }) {
             </div>
           ))}
         </div>
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-mono text-xs tracking-wide uppercase inline-flex items-center gap-2 min-h-11"
-        >
-          <span className="border-b border-text pb-1">{project.linkLabel}</span>
-        </a>
+        <div className="flex flex-col items-start gap-2">
+          <Link
+            href={project.caseStudyHref}
+            className="font-mono text-xs tracking-wide uppercase inline-flex items-center gap-2 min-h-11"
+          >
+            <span className="border-b border-text pb-1">
+              Read the {project.title} case study
+            </span>
+          </Link>
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs tracking-wide uppercase inline-flex items-center gap-2 min-h-11 text-text-dim"
+          >
+            <span className="border-b border-text-dim pb-1">{project.linkLabel}</span>
+          </a>
+        </div>
       </div>
     </div>
   );
