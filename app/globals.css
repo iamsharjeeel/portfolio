@@ -510,6 +510,38 @@ body {
   50% { transform: rotate(-5deg); }
 }
 
+.ghl-scale {
+  --ghl-w: 400px;
+  --ghl-h: 780px;
+  --ghl-scale: min(0.78, (100vw - 2.5rem) / 400px);
+  width: calc(var(--ghl-w) * var(--ghl-scale));
+  height: calc(var(--ghl-h) * var(--ghl-scale));
+  margin-inline: auto;
+  margin-top: 3.5rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+}
+.ghl-scale-booking {
+  --ghl-w: 1040px;
+  --ghl-h: 980px;
+  --ghl-scale: min(0.64, (100vw - 2.5rem) / 1040px);
+}
+.ghl-scale-inner {
+  width: var(--ghl-w);
+  height: var(--ghl-h);
+  transform: scale(var(--ghl-scale));
+  transform-origin: top left;
+}
+.ghl-scale-frame {
+  display: block;
+  width: var(--ghl-w);
+  height: var(--ghl-h);
+  border: 0;
+  background: var(--bg-raised);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

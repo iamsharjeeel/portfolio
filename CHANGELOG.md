@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-08-13 — Scale HighLevel form and calendar embeds down without changing their internal layout.
 - 2026-08-13 — Replace custom contact/booking forms with HighLevel widgets.
 - 2026-08-13 — Add /book page, nav Book button, and LeadConnector JSON webhook for form + booking.
 - 2026-08-13 — Production SEO overhaul for sharjeel.cc: metadata system, crawlable routes, sitemap/robots/JSON-LD, audit + CI.

@@ -1,5 +1,13 @@
 # Handover
 
+## 2026-08-13 — Scale GHL widgets down
+
+### What changed
+- Form and calendar iframes keep their native size and are CSS-scaled so they look smaller without stretching the widget layout.
+
+### Files touched
+- `components/GhlWidget.tsx`, `app/globals.css`, `CHANGELOG.md`, `HANDOVER.md`
+
 ## 2026-08-13 — HighLevel form and calendar widgets
 
 ### What changed
