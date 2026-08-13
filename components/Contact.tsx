@@ -8,7 +8,7 @@ export default function Contact() {
       className="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 py-20 border-t border-line relative"
     >
       <h2 className="font-mono text-xs tracking-widest uppercase text-text-dim mb-8">
-        // Got a build, a campaign, or both
+        {"// Got a build, a campaign, or both"}
       </h2>
       <a
         href={`mailto:${SITE_EMAIL}`}

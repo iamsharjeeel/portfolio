@@ -49,7 +49,7 @@ export default function Philosophy() {
       <div className="relative z-[1] grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1.35fr)] gap-10 md:gap-12 lg:gap-16 w-full md:items-stretch">
         <div className="flex flex-col gap-5 min-h-0">
           <h2 className="font-mono text-xs tracking-widest uppercase text-text-faint shrink-0">
-            // Philosophy
+            {"// Philosophy"}
           </h2>
           <div
             ref={photoRef}

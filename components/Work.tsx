@@ -84,7 +84,7 @@ export default function Work() {
             <WorkBackdrop />
             <div className="relative z-[1]">
               <div className="font-mono text-xs text-text-faint tracking-wider uppercase mb-4.5">
-                // Selected work — 03
+                {"// Selected work — 03"}
               </div>
               <h2 className="font-display font-black text-[clamp(38px,6.4vw,84px)] leading-[0.95] tracking-[-0.03em] uppercase">
                 SHIPPED

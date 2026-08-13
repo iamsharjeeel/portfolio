@@ -136,6 +136,7 @@ async function main() {
     child = spawn("npx", ["next", "start", "-p", PORT], {
       stdio: ["ignore", "pipe", "pipe"],
       env: { ...process.env, PORT },
+      detached: true,
     });
     child.stderr.on("data", () => {});
   }
@@ -309,8 +310,12 @@ async function main() {
       }
     }
   } finally {
-    if (child) {
-      child.kill("SIGTERM");
+    if (child?.pid) {
+      try {
+        process.kill(-child.pid, "SIGKILL");
+      } catch {
+        child.kill("SIGKILL");
+      }
     }
   }
 
