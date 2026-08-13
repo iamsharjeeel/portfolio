@@ -56,9 +56,16 @@ export default function HeaderNav() {
         <Link
           href={contactHref}
           onClick={() => trackEvent("contact_cta_click", { location: "header" })}
-          className="border border-white rounded-full px-3 sm:px-4 py-1.5 text-white font-mono text-[10px] sm:text-[11px] tracking-wider uppercase whitespace-nowrap inline-flex items-center min-h-10 sm:min-h-9"
+          className="hidden sm:inline-flex border border-white rounded-full px-3 sm:px-4 py-1.5 text-white font-mono text-[10px] sm:text-[11px] tracking-wider uppercase whitespace-nowrap items-center min-h-10 sm:min-h-9"
         >
           Let&apos;s talk
+        </Link>
+        <Link
+          href="/book"
+          onClick={() => trackEvent("booking_cta_click", { location: "header" })}
+          className="rounded-full px-3 sm:px-4 py-1.5 bg-accent text-bg font-mono text-[10px] sm:text-[11px] tracking-wider uppercase whitespace-nowrap inline-flex items-center min-h-10 sm:min-h-9"
+        >
+          Book
         </Link>
         <ThemeToggle />
       </div>

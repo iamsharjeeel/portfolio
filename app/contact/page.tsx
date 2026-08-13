@@ -8,6 +8,7 @@ import {
   personJsonLd,
   websiteJsonLd,
 } from "@/lib/jsonld";
+import Link from "next/link";
 import { SITE_EMAIL, SOCIAL, buildMetadata, pages } from "@/lib/seo";
 
 export const metadata = buildMetadata(pages.contact);
@@ -29,7 +30,7 @@ export default function ContactPage() {
         <PageHeader
           eyebrow="// Contact"
           title="Let's talk"
-          lede="Got a build, a campaign, or both. Send a note and I'll get back to you."
+          lede="Got a build, a campaign, or both. Send a note — or book a time if you'd rather talk live."
           crumbs={[
             { name: "Home", href: "/" },
             { name: "Contact" },
@@ -59,6 +60,12 @@ export default function ContactPage() {
             >
               GitHub
             </a>
+            <Link
+              href="/book"
+              className="inline-flex items-center min-h-11 border-b border-transparent hover:border-text hover:text-text transition-colors"
+            >
+              Book a call
+            </Link>
           </div>
           <ContactForm />
         </section>

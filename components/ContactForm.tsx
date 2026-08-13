@@ -18,6 +18,7 @@ export default function ContactForm() {
     const payload = {
       name: String(data.get("name") || ""),
       email: String(data.get("email") || ""),
+      phone: String(data.get("phone") || ""),
       project: String(data.get("project") || ""),
       message: String(data.get("message") || ""),
       website: String(data.get("website") || ""),
@@ -80,6 +81,20 @@ export default function ContactForm() {
           />
         </label>
       </div>
+
+      <label className="block mt-4">
+        <span className="font-mono text-[10px] tracking-widest uppercase text-text-faint">
+          Phone
+        </span>
+        <input
+          name="phone"
+          type="tel"
+          required
+          autoComplete="tel"
+          className="mt-2 w-full bg-transparent border-b border-line focus:border-accent outline-none py-3 text-[15px] text-text placeholder:text-text-faint"
+          placeholder="+1 555 123 4567"
+        />
+      </label>
 
       <label className="block mt-4">
         <span className="font-mono text-[10px] tracking-widest uppercase text-text-faint">

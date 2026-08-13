@@ -1,5 +1,25 @@
 # Handover
 
+## 2026-08-13 — Branded booking page + LeadConnector webhook
+
+### What changed
+- `/book` branded scheduler (name, email, phone, project, date, time, timezone, notes).
+- Nav **Book** button (primary) plus footer/CTA links.
+- Contact form now requires phone.
+- `/api/contact` and `/api/book` POST JSON to the LeadConnector webhook from the server. Resend is optional/best-effort.
+- Form success no longer depends on `RESEND_API_KEY`.
+
+### Files touched
+- `lib/lead-webhook.ts`, `lib/contact-email.ts`, `lib/seo.ts`
+- `app/book/page.tsx`, `app/api/book/route.ts`, `app/api/contact/route.ts`
+- `components/BookingForm.tsx`, `components/ContactForm.tsx`, `components/HeaderNav.tsx`, `components/Footer.tsx`, `components/seo/CtaBand.tsx`
+- `.env.example`, `README.md`, `CHANGELOG.md`, `HANDOVER.md`
+
+### Pending
+- **Manual:** in GHL, map webhook JSON keys (`name`, `email`, `phone`, `project`, `message`/`notes`, `date`, `time`, `timezone`, `type`).
+- **Manual:** set `LEAD_WEBHOOK_URL` in Vercel only if you want to override the default trigger.
+- **Manual:** `RESEND_API_KEY` still needed if you want email copies of submissions.
+
 ## 2026-08-13 — Portfolio SEO overhaul for sharjeel.cc
 
 ### What changed

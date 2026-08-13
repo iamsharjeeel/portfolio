@@ -93,6 +93,13 @@ export const pages = {
       "Start a project with Sharjeel. Email hello@sharjeel.cc or send a note about a build, a campaign, or both.",
     index: true,
   },
+  book: {
+    path: "/book",
+    title: "Book a call",
+    description:
+      "Request a time with Sharjeel to talk through a product build, a paid campaign, or both.",
+    index: true,
+  },
 } as const satisfies Record<string, SeoPage>;
 
 export type PageKey = keyof typeof pages;

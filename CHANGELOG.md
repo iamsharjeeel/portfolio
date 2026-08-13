@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-08-13 — Add /book page, nav Book button, and LeadConnector JSON webhook for form + booking.
 - 2026-08-13 — Production SEO overhaul for sharjeel.cc: metadata system, crawlable routes, sitemap/robots/JSON-LD, audit + CI.
 - 2026-07-09 — Push mobile hero code panel ~24px below the header.
 - 2026-07-09 — Fix mobile header centering; contact form + branded Resend HTML notify to iamsharjeeel@gmail.com.

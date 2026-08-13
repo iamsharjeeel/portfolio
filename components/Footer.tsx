@@ -74,6 +74,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/book"
+                className="text-[14px] text-text-dim hover:text-text transition-colors"
+              >
+                Book a call
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact"
                 className="text-[14px] text-text-dim hover:text-text transition-colors"
               >
