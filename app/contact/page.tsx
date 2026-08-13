@@ -35,15 +35,16 @@ export default function ContactPage() {
             { name: "Home", href: "/" },
             { name: "Contact" },
           ]}
+          align="center"
         />
-        <section className="px-5 sm:px-8 lg:px-14 py-16">
+        <section className="px-5 sm:px-8 lg:px-14 py-16 text-center">
           <a
             href={`mailto:${SITE_EMAIL}`}
             className="font-display font-black tracking-[-0.04em] text-[clamp(22px,5vw,56px)] leading-none lowercase break-words hover:text-accent transition-colors"
           >
             {SITE_EMAIL}
           </a>
-          <div className="mt-8 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim">
+          <div className="mt-8 flex gap-x-7 font-mono text-xs uppercase tracking-wide text-text-dim justify-center">
             <a
               href={SOCIAL.linkedin}
               target="_blank"

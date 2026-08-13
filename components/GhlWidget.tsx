@@ -8,54 +8,33 @@ const BOOKING_SRC =
   "https://links.s1mplesolutions.cc/widget/booking/6MeULKb9URhRkDsOtCPi";
 const EMBED_SCRIPT = "https://links.s1mplesolutions.cc/js/form_embed.js";
 
-function ScaledFrame({
-  src,
-  title,
-  id,
-  lazy,
-  variant,
-}: {
-  src: string;
-  title: string;
-  id: string;
-  lazy?: boolean;
-  variant: "form" | "booking";
-}) {
+export function GhlFormWidget({ lazy = false }: { lazy?: boolean }) {
   return (
-    <div className={`ghl-scale ghl-scale-${variant}`}>
-      <div className="ghl-scale-inner">
-        <iframe
-          src={src}
-          id={id}
-          title={title}
-          loading={lazy ? "lazy" : "eager"}
-          className="ghl-scale-frame"
-        />
-      </div>
+    <div className="w-full max-w-[960px] mx-auto mt-14 overflow-hidden rounded-2xl border border-line bg-bg-raised">
+      <iframe
+        src={FORM_SRC}
+        id="ghl-form-Uz2HqJA1sQk9EC6LTcHV"
+        title="Contact Sharjeel"
+        loading={lazy ? "lazy" : "eager"}
+        className="block w-full border-0 bg-bg-raised"
+        style={{ minHeight: 720, height: 780 }}
+      />
       <Script src={EMBED_SCRIPT} strategy="afterInteractive" />
     </div>
   );
 }
 
-export function GhlFormWidget({ lazy = false }: { lazy?: boolean }) {
-  return (
-    <ScaledFrame
-      src={FORM_SRC}
-      title="Contact Sharjeel"
-      id="ghl-form-Uz2HqJA1sQk9EC6LTcHV"
-      lazy={lazy}
-      variant="form"
-    />
-  );
-}
-
 export function GhlBookingWidget() {
   return (
-    <ScaledFrame
-      src={BOOKING_SRC}
-      title="Book a call with Sharjeel"
-      id="ghl-booking-6MeULKb9URhRkDsOtCPi"
-      variant="booking"
-    />
+    <div className="w-full max-w-[1100px] mx-auto mt-14 overflow-hidden rounded-2xl border border-line bg-bg-raised">
+      <iframe
+        src={BOOKING_SRC}
+        id="ghl-booking-6MeULKb9URhRkDsOtCPi"
+        title="Book a call with Sharjeel"
+        className="block w-full border-0 bg-bg-raised"
+        style={{ minHeight: 880, height: 880 }}
+      />
+      <Script src={EMBED_SCRIPT} strategy="afterInteractive" />
+    </div>
   );
 }

@@ -34,8 +34,9 @@ export default function BookPage() {
             { name: "Home", href: "/" },
             { name: "Book" },
           ]}
+          align="center"
         />
-        <section className="px-5 sm:px-8 lg:px-14 py-16">
+        <section className="px-5 sm:px-8 lg:px-14 py-16 text-center">
           <p className="max-w-[640px] mx-auto text-[15px] leading-relaxed text-text-dim">
             Prefer email first?{" "}
             <a

@@ -1,5 +1,15 @@
 # Handover
 
+## 2026-08-13 — GHL form/calendar layout
+
+### What changed
+- Removed CSS scale on the contact form so GHL can use its horizontal field layout.
+- Calendar embed is wider again (`max-w-[1100px]`).
+- `/contact` and `/book` headings are centered.
+
+### Files touched
+- `components/GhlWidget.tsx`, `components/seo/PageHeader.tsx`, `app/contact/page.tsx`, `app/book/page.tsx`, `app/globals.css`
+
 ## 2026-08-13 — Scale GHL widgets down
 
 ### What changed
