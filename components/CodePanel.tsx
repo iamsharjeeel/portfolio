@@ -28,7 +28,6 @@ function renderLine(line: CodeLine): HTMLDivElement {
 
 export default function CodePanel({ glowColor }: { glowColor: string }) {
   const bodyRef = useRef<HTMLDivElement>(null);
-  const [snippetIndex, setSnippetIndex] = useState(0);
   const [filename, setFilename] = useState(snippets[0].file);
 
   useEffect(() => {
@@ -54,24 +53,21 @@ export default function CodePanel({ glowColor }: { glowColor: string }) {
     }
 
     typeSnippet(0, 0.9);
+    let current = 0;
 
     const interval = setInterval(() => {
-      setSnippetIndex((prev) => {
-        const next = (prev + 1) % snippets.length;
-        gsap.to(body, {
-          opacity: 0,
-          duration: 0.3,
-          onComplete: () => {
-            typeSnippet(next, 0);
-            gsap.to(body, { opacity: 1, duration: 0.3 });
-          },
-        });
-        return next;
+      current = (current + 1) % snippets.length;
+      gsap.to(body, {
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => {
+          typeSnippet(current, 0);
+          gsap.to(body, { opacity: 1, duration: 0.3 });
+        },
       });
     }, 6000);
 
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
