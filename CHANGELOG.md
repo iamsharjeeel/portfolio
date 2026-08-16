@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-08-16 — Frontend security baseline: CSP and security headers, CodePanel textContent tokens, JSON-LD script-breakout escape, GHL iframe referrer policy, Next 16.2.11 plus postcss/sharp overrides.
 - 2026-08-13 — Restore contact form width, enlarge calendar, center /contact and /book headings.
 - 2026-08-13 — Scale HighLevel form and calendar embeds down without changing their internal layout.
 - 2026-08-13 — Replace custom contact/booking forms with HighLevel widgets.

@@ -16,6 +16,7 @@ export function GhlFormWidget({ lazy = false }: { lazy?: boolean }) {
         id="ghl-form-Uz2HqJA1sQk9EC6LTcHV"
         title="Contact Sharjeel"
         loading={lazy ? "lazy" : "eager"}
+        referrerPolicy="strict-origin-when-cross-origin"
         className="block w-full border-0 bg-bg-raised"
         style={{ minHeight: 720, height: 780 }}
       />
@@ -31,6 +32,7 @@ export function GhlBookingWidget() {
         src={BOOKING_SRC}
         id="ghl-booking-6MeULKb9URhRkDsOtCPi"
         title="Book a call with Sharjeel"
+        referrerPolicy="strict-origin-when-cross-origin"
         className="block w-full border-0 bg-bg-raised"
         style={{ minHeight: 880, height: 880 }}
       />

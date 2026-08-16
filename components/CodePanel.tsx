@@ -2,7 +2,29 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { snippets } from "@/lib/content";
+import {
+  snippets,
+  type CodeLine,
+  type TokenClass,
+} from "@/lib/content";
+
+const TOKEN_CLASSES = new Set<TokenClass>(["kw", "fn", "str", "cm"]);
+
+function renderLine(line: CodeLine): HTMLDivElement {
+  const div = document.createElement("div");
+  div.className = "code-line";
+  for (const token of line) {
+    if (token.className && TOKEN_CLASSES.has(token.className)) {
+      const span = document.createElement("span");
+      span.className = token.className;
+      span.textContent = token.text;
+      div.appendChild(span);
+    } else {
+      div.appendChild(document.createTextNode(token.text));
+    }
+  }
+  return div;
+}
 
 export default function CodePanel({ glowColor }: { glowColor: string }) {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -17,11 +39,9 @@ export default function CodePanel({ glowColor }: { glowColor: string }) {
       const snippet = snippets[idx];
       setFilename(snippet.file);
       if (!body) return;
-      body.innerHTML = "";
+      body.replaceChildren();
       snippet.lines.forEach((line, i) => {
-        const div = document.createElement("div");
-        div.className = "code-line";
-        div.innerHTML = line;
+        const div = renderLine(line);
         body.appendChild(div);
         gsap.to(div, {
           opacity: 1,

@@ -44,7 +44,9 @@ NEXT_PUBLIC_GA_ID=
 NEXT_PUBLIC_GTM_ID=
 ```
 
-Contact and booking use HighLevel widgets. Submissions go into GHL, not this app.
+Contact and booking use HighLevel widgets (`links.s1mplesolutions.cc`). Validation, spam protection, and rate limiting are GHL’s, not this app.
+
+Production responses include CSP (`frame-src` / `script-src` for HighLevel + optional GA/GTM), `nosniff`, clickjacking protection, `Referrer-Policy`, and `Permissions-Policy`. Theme boot and Next/Tailwind need `'unsafe-inline'` for scripts/styles; production CSP does not allow `unsafe-eval`.
 
 ## Structure
 - `app/page.tsx` — homepage

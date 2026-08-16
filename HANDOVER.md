@@ -1,5 +1,45 @@
 # Handover
 
+## 2026-08-16 — Frontend security baseline
+
+### What changed
+- Production security headers on all routes, including a restrictive CSP allowlisting HighLevel (`links.s1mplesolutions.cc`) and optional GA/GTM.
+- Hero code panel no longer parses HTML; snippets are `{ text, className }` tokens rendered with `textContent`.
+- JSON-LD escapes `<` to `\u003c` to prevent script breakout.
+- GHL iframes set `referrerPolicy="strict-origin-when-cross-origin"`.
+- `.gitignore` keeps `.env.example` trackable (`!.env.example`).
+
+### Files touched
+- `next.config.ts`, `lib/content.ts`, `components/CodePanel.tsx`, `components/seo/JsonLd.tsx`, `components/GhlWidget.tsx`, `.gitignore`, `package.json`, `package-lock.json`
+- `README.md`, `CHANGELOG.md`, `HANDOVER.md`
+
+### Security Classification
+Frontend / Marketing. Public portfolio, no auth, no database, no admin, no owned form API. Contact and booking submit inside HighLevel iframes.
+
+### Controls Implemented
+- HTTPS-ready headers: CSP, `X-Content-Type-Options`, `X-Frame-Options: DENY`, `frame-ancestors 'none'`, `Referrer-Policy`, `Permissions-Policy`, production HSTS.
+- CSP: no wildcard `*`, no production `unsafe-eval`. `'unsafe-inline'` remains for the theme boot script, Next/Tailwind, and optional GA/GTM inline snippets.
+- XSS: trusted JSON-LD only; code panel uses text nodes + class whitelist (`kw` / `fn` / `str` / `cm`).
+- External `target="_blank"` links already use `rel="noopener noreferrer"`.
+- Secrets: only optional public `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_GTM_ID` reach the browser. No service-role keys.
+- Dependencies: Next.js `16.2.11` (security patch) plus `overrides` for `postcss@8.5.26` and `sharp@0.35.3`. `npm audit` reports 0 vulnerabilities.
+
+### External / Platform Controls
+- Vercel HTTPS, HTTP→HTTPS, and platform HSTS.
+- HighLevel form/calendar validation, spam/bot protection, and submission rate limiting.
+- Optional GA4/GTM loaded only when env IDs are set.
+
+### Remaining Security Considerations
+- In-iframe HighLevel pages are a third-party origin; this app cannot enforce GHL’s internal CSP or anti-abuse settings.
+- `'unsafe-inline'` on `script-src` / `style-src` is required for the static theme snippet and Next inline CSS. A nonce-based CSP would be a later hardening step.
+- Optional analytics IDs, if set, expand the third-party script surface.
+
+### Manual Configuration Required
+- **Manual:** confirm HighLevel spam/bot settings on the form and calendar (this repo cannot add CAPTCHA to the iframe).
+- **Manual:** Vercel Firewall if you want edge rate limits on the marketing site itself (there is no owned `/api/contact`).
+- **Manual:** `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_GTM_ID` only with real production IDs.
+- **Manual:** attach `sharjeel.cc` + `www` in Vercel (HTTPS / apex canonical).
+
 ## 2026-08-13 — GHL form/calendar layout
 
 ### What changed
